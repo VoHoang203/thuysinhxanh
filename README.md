@@ -15,3 +15,4 @@ Mỗi khi làm việc xong:
 
 Kiểm tra xem mình đang ở nhánh nào:
   git branch
+
