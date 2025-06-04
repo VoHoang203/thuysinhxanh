@@ -14,5 +14,15 @@ Mỗi khi làm việc xong:
 
 
 Kiểm tra xem mình đang ở nhánh nào:
-  git branch
+    git branch
+Chuyển nhánh: 
+    git checkout ten_nhanh
+
+
+Mỗi lần push lên rồi muốn pull về thì nhớ về main rồi push lên lại tạo nhanh mới
+Về main: 
+ git checkout main
+ git pull origin main
+
+Push lên nhánh mới 
 
