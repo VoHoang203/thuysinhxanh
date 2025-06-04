@@ -26,3 +26,7 @@ Về main:
 
 Push lên nhánh mới 
 
+Chạy code:
+sau khi pull về cần: npm i
+sau đó chạy: npm run dev
+
