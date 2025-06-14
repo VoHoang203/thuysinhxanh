@@ -1,27 +1,51 @@
-
-import {Link} from "react-router"
-import { useState } from "react"
-import { ChevronRight, ShoppingCart, Truck, CreditCard, ShieldCheck, Minus, Plus } from "lucide-react"
+import React from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  ChevronRight,
+  ShoppingCart,
+  Truck,
+  CreditCard,
+  ShieldCheck,
+  Minus,
+  Plus,
+} from "lucide-react";
 
 const productImages = [
-  { id: 1, src: "/placeholder.svg?width=600&height=600", alt: "Main filter view" },
-  { id: 2, src: "/placeholder.svg?width=100&height=100", alt: "Filter side view" },
+  {
+    id: 1,
+    src: "/placeholder.svg?width=600&height=600",
+    alt: "Main filter view",
+  },
+  {
+    id: 2,
+    src: "/placeholder.svg?width=100&height=100",
+    alt: "Filter side view",
+  },
   { id: 3, src: "/placeholder.svg?width=100&height=100", alt: "Filter parts" },
-  { id: 4, src: "/placeholder.svg?width=100&height=100", alt: "Filter angle view" },
+  {
+    id: 4,
+    src: "/placeholder.svg?width=100&height=100",
+    alt: "Filter angle view",
+  },
   { id: 5, src: "/placeholder.svg?width=100&height=100", alt: "Filter in use" },
-  { id: 6, src: "/placeholder.svg?width=100&height=100", alt: "Filter packaging" },
-]
+  {
+    id: 6,
+    src: "/placeholder.svg?width=100&height=100",
+    alt: "Filter packaging",
+  },
+];
 
-const sizes = ["PX-10", "PX-15", "PX-20"]
+const sizes = ["PX-10", "PX-15", "PX-20"];
 
 export default function ProductDetail() {
-  const [selectedImage, setSelectedImage] = useState(productImages[0])
-  const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState(sizes[0])
+  const [selectedImage, setSelectedImage] = useState(productImages[0]);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
   const handleQuantityChange = (amount) => {
-    setQuantity((prev) => Math.max(1, prev + amount))
-  }
+    setQuantity((prev) => Math.max(1, prev + amount));
+  };
 
   return (
     <div className="bg-white p-4 md:p-6">
@@ -56,7 +80,9 @@ export default function ProductDetail() {
                   key={img.id}
                   onClick={() => setSelectedImage(img)}
                   className={`block border-2 rounded-md overflow-hidden ${
-                    selectedImage.id === img.id ? "border-red-500" : "border-transparent"
+                    selectedImage.id === img.id
+                      ? "border-red-500"
+                      : "border-transparent"
                   } hover:border-red-400 transition-all focus:outline-none focus:ring-2 focus:ring-red-500`}
                 >
                   <image
@@ -89,13 +115,18 @@ export default function ProductDetail() {
               Bảo hành: <span className="text-gray-700">1 tháng</span>
             </div>
             <div className="text-sm text-gray-500 mb-3">
-              Kho: <span className="text-green-600 font-medium">Còn hàng (2)</span>
+              Kho:{" "}
+              <span className="text-green-600 font-medium">Còn hàng (2)</span>
             </div>
 
-            <div className="text-3xl font-bold text-red-600 mb-4">1.600.000₫</div>
+            <div className="text-3xl font-bold text-red-600 mb-4">
+              1.600.000₫
+            </div>
 
             <div className="mb-4">
-              <label className="text-sm font-medium text-gray-700 mb-1 block">Kích thước</label>
+              <label className="text-sm font-medium text-gray-700 mb-1 block">
+                Kích thước
+              </label>
               <div className="flex space-x-2">
                 {sizes.map((size) => (
                   <button
@@ -116,7 +147,10 @@ export default function ProductDetail() {
             </div>
 
             <div className="mb-6">
-              <label htmlFor="quantity" className="text-sm font-medium text-gray-700 mb-1 block">
+              <label
+                htmlFor="quantity"
+                className="text-sm font-medium text-gray-700 mb-1 block"
+              >
                 Số lượng
               </label>
               <div className="flex items-center">
@@ -156,42 +190,59 @@ export default function ProductDetail() {
             <hr className="my-6 border-gray-200" />
 
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">GIỚI THIỆU SẢN PHẨM</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">
+                GIỚI THIỆU SẢN PHẨM
+              </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
-                Lọc thùng Haiyang là một trong những dòng lọc ngoài được ưa chuộng trong giới chơi thủy sinh và nuôi cá
-                cảnh. Với thiết kế hiện đại, hiệu suất mạnh mẽ và khả năng lọc nước tối ưu, sản phẩm này giúp duy trì
-                môi trường nước trong sạch, giảm thiểu công sức vệ sinh bể. Đặc biệt, khay tách phân hiệu quả là điểm
-                nhấn nổi bật, giúp giữ lại cặn bẩn lớn trước khi nước đi vào hệ thống lọc chính, giảm tải cho vật liệu
-                lọc bên trong.
+                Lọc thùng Haiyang là một trong những dòng lọc ngoài được ưa
+                chuộng trong giới chơi thủy sinh và nuôi cá cảnh. Với thiết kế
+                hiện đại, hiệu suất mạnh mẽ và khả năng lọc nước tối ưu, sản
+                phẩm này giúp duy trì môi trường nước trong sạch, giảm thiểu
+                công sức vệ sinh bể. Đặc biệt, khay tách phân hiệu quả là điểm
+                nhấn nổi bật, giúp giữ lại cặn bẩn lớn trước khi nước đi vào hệ
+                thống lọc chính, giảm tải cho vật liệu lọc bên trong.
               </p>
             </div>
 
             <hr className="my-6 border-gray-200" />
 
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">CHÍNH SÁCH</h3>
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">
+                CHÍNH SÁCH
+              </h3>
               <div className="space-y-3">
                 <div className="flex items-start">
                   <Truck className="h-6 w-6 text-red-600 mr-3 mt-1 shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-700">GIAO HÀNG TẬN NƠI</h4>
+                    <h4 className="font-medium text-gray-700">
+                      GIAO HÀNG TẬN NƠI
+                    </h4>
                     <p className="text-sm text-gray-600">
-                      Liên kết với những hãng giao hàng uy tín, nhanh chóng, đảm bảo
+                      Liên kết với những hãng giao hàng uy tín, nhanh chóng, đảm
+                      bảo
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CreditCard className="h-6 w-6 text-red-600 mr-3 mt-1 shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-700">THANH TOÁN KHI NHẬN HÀNG</h4>
-                    <p className="text-sm text-gray-600">Kiểm tra hàng thoải mái trước khi thanh toán</p>
+                    <h4 className="font-medium text-gray-700">
+                      THANH TOÁN KHI NHẬN HÀNG
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Kiểm tra hàng thoải mái trước khi thanh toán
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <ShieldCheck className="h-6 w-6 text-red-600 mr-3 mt-1 shrink-0" />
                   <div>
-                    <h4 className="font-medium text-gray-700">BẢO HÀNH CHÍNH HÃNG</h4>
-                    <p className="text-sm text-gray-600">Cam kết sản phẩm chính hãng, bảo hành theo tiêu chuẩn</p>
+                    <h4 className="font-medium text-gray-700">
+                      BẢO HÀNH CHÍNH HÃNG
+                    </h4>
+                    <p className="text-sm text-gray-600">
+                      Cam kết sản phẩm chính hãng, bảo hành theo tiêu chuẩn
+                    </p>
                   </div>
                 </div>
               </div>
@@ -200,5 +251,5 @@ export default function ProductDetail() {
         </div>
       </div>
     </div>
-  )
+  );
 }
