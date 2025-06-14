@@ -1,7 +1,7 @@
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 import Sidebar from "../Sidebar/Sidebar";
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useLocation } from "react-router-dom";
 
 const MainLayout = () => {
   const location = useLocation();
@@ -18,4 +18,4 @@ const MainLayout = () => {
   );
 };
 
-export default MainLayout; 
+export default MainLayout;
