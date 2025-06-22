@@ -2,7 +2,7 @@
     "blogs": [
         {
         "id": 1,
-        "image": "./assets/image_Blog/blog1.jpg",
+        "image": "/assets/image_Blog/blog1.jpg",
         "title": "Bí quyết chọn bể cá phù hợp cho người mới bắt đầu",
         "author": "Nguyễn Văn Hùng",
         "shortContent": "Bạn mới bắt đầu chơi thủy sinh? Tìm hiểu cách chọn bể cá phù hợp với không gian và ngân sách của bạn.",
@@ -10,7 +10,7 @@
         },
         {
         "id": 2,
-        "image": "./assets/image_Blog/blog2.png",
+        "image": "/assets/image_Blog/blog2.png",
         "title": "Top 5 loại cá cảnh dễ nuôi nhất cho bể thủy sinh",
         "author": "Trần Thị Mai",
         "shortContent": "Khám phá 5 loại cá cảnh dễ nuôi, lý tưởng cho người mới bắt đầu trong thế giới thủy sinh.",
@@ -18,7 +18,7 @@
         },
         {
         "id": 3,
-        "image": "./assets/image_Blog/blog3.png",
+        "image": "/assets/image_Blog/blog3.png",
         "title": "Cách thiết kế bể thủy sinh phong cách tự nhiên",
         "author": "Lê Minh Tuấn",
         "shortContent": "Học cách thiết kế một bể thủy sinh phong cách tự nhiên, mang thiên nhiên vào không gian sống.",
@@ -26,7 +26,7 @@
         },
         {
         "id": 4,
-        "image": "./assets/image_Blog/blog4.png",
+        "image": "/assets/image_Blog/blog4.png",
         "title": "Hướng dẫn chăm sóc cây thủy sinh cho người mới",
         "author": "Phạm Hồng Nhung",
         "shortContent": "Tìm hiểu cách chăm sóc cây thủy sinh để bể cá của bạn luôn xanh tươi và khỏe mạnh.",
@@ -34,7 +34,7 @@
         },
         {
         "id": 5,
-        "image": "./assets/image_Blog/blog5.png",
+        "image": "/assets/image_Blog/blog5.png",
         "title": "Làm thế nào để giữ nước bể cá luôn trong sạch?",
         "author": "Hoàng Văn Nam",
         "shortContent": "Bí kíp giữ nước bể cá trong sạch, giúp cá và cây thủy sinh phát triển khỏe mạnh.",
@@ -42,7 +42,7 @@
         },
         {
         "id": 6,
-        "image": "./assets/image_Blog/blog6.jpeg",
+        "image": "/assets/image_Blog/blog6.jpeg",
         "title": "Cách chọn hệ thống lọc cho bể cá thủy sinh",
         "author": "Trương Quốc Anh",
         "shortContent": "Tìm hiểu các loại hệ thống lọc và cách chọn lọc phù hợp để giữ bể cá luôn sạch và khỏe mạnh.",
@@ -50,7 +50,7 @@
         },
         {
         "id": 7,
-        "image": "./assets/image_Blog/blog7.webp",
+        "image": "/assets/image_Blog/blog7.webp",
         "title": "Bí quyết nuôi cá betta trong bể thủy sinh",
         "author": "Nguyễn Thị Lan",
         "shortContent": "Học cách nuôi cá betta khỏe mạnh và tạo điểm nhấn cho bể thủy sinh của bạn.",
@@ -58,7 +58,7 @@
         },
         {
         "id": 8,
-        "image": "./assets/image_Blog/blog8.jpg",
+        "image": "/assets/image_Blog/blog8.jpg",
         "title": "Cách kiểm soát tảo trong bể cá thủy sinh",
         "author": "Vũ Minh Đức",
         "shortContent": "Khám phá các phương pháp hiệu quả để kiểm soát tảo, giữ bể cá luôn trong và đẹp mắt.",
