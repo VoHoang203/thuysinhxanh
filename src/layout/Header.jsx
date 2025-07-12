@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import ThuySinhCarousel from "./Carousels";
-import { Link, Outlet, BrowserRouter } from "react-router-dom"
+import { Link, Outlet, BrowserRouter } from "react-router"
 
 
 {/* 

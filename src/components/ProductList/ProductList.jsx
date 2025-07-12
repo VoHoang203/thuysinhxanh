@@ -1,6 +1,16 @@
 import {Star, ChevronRight, ListOrdered, Tag, Users} from "lucide-react"
 import {Link} from "react-router"
-
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Form,
+  Image,
+  ListGroup,
+  Pagination,
+  Button,
+} from 'react-bootstrap';
 const products = [
   {
     id: 1,
@@ -68,201 +78,147 @@ const bestSellingProducts = [
 ]
 
 const FilterCheckbox = ({ id, label }) => (
-  <div className="flex items-center space-x-2">
-    <input
-      type="checkbox"
-      id={id}
-      className="h-4 w-4 text-red-600 border-gray-300 rounded focus:ring-red-500 cursor-pointer"
-    />
-    <label htmlFor={id} className="text-sm text-gray-700 hover:text-red-600 cursor-pointer">
-      {label}
-    </label>
-  </div>
-)
+  <Form.Check
+    type="checkbox"
+    id={id}
+    label={label}
+    className="mb-2"
+  />
+);
 
 export default function ProductList() {
   return (
-    <div className="bg-gray-100 p-4 md:p-6">
-      <div className="container mx-auto">
-        <div className="mb-4 text-sm text-gray-600">
-          <Link to="/" className="hover:text-red-600">
+    <div className="bg-light py-4">
+      <Container>
+        {/* Breadcrumb */}
+        <div className="mb-3 text-muted">
+          <Link to="/" className="text-decoration-none text-muted me-1">
             Trang chủ
           </Link>
-          <ChevronRight className="inline-block w-3 h-3 mx-1" />
+          <ChevronRight size={14} className="mx-1 d-inline-block" />
           <span>Tất Cả Sản Phẩm</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <Row>
           {/* Sidebar */}
-          <aside className="lg:col-span-1 space-y-6">
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                <ListOrdered className="w-5 h-5 mr-2 text-red-600" />
-                LOẠI
-              </h3>
-              <div className="space-y-2">
+          <Col lg={3}>
+            <Card className="mb-4">
+              <Card.Body>
+                <Card.Title className="d-flex align-items-center mb-3">
+                  <ListOrdered size={18} className="text-danger me-2" />
+                  LOẠI
+                </Card.Title>
                 <FilterCheckbox id="filter-all" label="Tất cả sản phẩm" />
                 <FilterCheckbox id="filter-fish" label="Cảnh" />
                 <FilterCheckbox id="filter-food" label="Thức ăn" />
                 <FilterCheckbox id="filter-accessory" label="Phụ kiện" />
                 <FilterCheckbox id="filter-plant" label="Cây thủy sinh" />
-              </div>
-            </div>
+              </Card.Body>
+            </Card>
 
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                <Tag className="w-5 h-5 mr-2 text-red-600" />
-                GIÁ THÀNH
-              </h3>
-              <div className="space-y-2">
+            <Card className="mb-4">
+              <Card.Body>
+                <Card.Title className="d-flex align-items-center mb-3">
+                  <Tag size={18} className="text-danger me-2" />
+                  GIÁ THÀNH
+                </Card.Title>
                 <FilterCheckbox id="price-1" label="Giá dưới 1.000.000đ" />
                 <FilterCheckbox id="price-2" label="1.000.000đ - 2.000.000đ" />
                 <FilterCheckbox id="price-3" label="2.000.000đ - 3.000.000đ" />
                 <FilterCheckbox id="price-4" label="3.000.000đ - 5.000.000đ" />
                 <FilterCheckbox id="price-5" label="Giá trên 5.000.000đ" />
-              </div>
-            </div>
+              </Card.Body>
+            </Card>
 
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-3 text-gray-800 flex items-center">
-                <Users className="w-5 h-5 mr-2 text-red-600" />
-                NHÀ CUNG CẤP
-              </h3>
-              <div className="space-y-2">
+            {/* <Card className="mb-4">
+              <Card.Body>
+                <Card.Title className="d-flex align-items-center mb-3">
+                  <Users size={18} className="text-danger me-2" />
+                  NHÀ CUNG CẤP
+                </Card.Title>
                 <FilterCheckbox id="supplier-apc" label="APC" />
                 <FilterCheckbox id="supplier-mufan" label="Mufan" />
                 <FilterCheckbox id="supplier-seachem" label="Seachem" />
                 <FilterCheckbox id="supplier-ista" label="Ista" />
                 <FilterCheckbox id="supplier-jbl" label="JBL" />
-              </div>
-            </div>
+              </Card.Body>
+            </Card> */}
 
-            <div className="bg-white p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-3 text-gray-800">SẢN PHẨM BÁN CHẠY</h3>
-              <div className="space-y-3">
-                {bestSellingProducts.map((product) => (
-                  <Link
-                    to={`/products/${product.id}`} // Assuming detail page exists
-                    key={product.id}
-                    className="flex items-center space-x-3 group"
-                  >
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={50}
-                      height={50}
-                      className="rounded border border-gray-200 w-10 h-10"
-                    />
-                    <div>
-                      <p className="text-sm text-gray-700 group-hover:text-red-600 transition-colors">{product.name}</p>
-                      <p className="text-sm font-semibold text-red-600">{product.price}</p>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </aside>
+            <Card>
+              <Card.Body>
+                <Card.Title>SẢN PHẨM BÁN CHẠY</Card.Title>
+                <ListGroup variant="flush">
+                  {bestSellingProducts.map((product) => (
+                    <ListGroup.Item key={product.id} className="p-0 mb-3 border-0 bg-transparent">
+                      <Link to={`/products/${product.id}`} className="d-flex text-decoration-none text-dark align-items-center">
+                        <Image src={product.image} width={40} height={40} rounded className="border me-2" />
+                        <div>
+                          <div className="small">{product.name}</div>
+                          <div className="fw-bold text-danger">{product.price}</div>
+                        </div>
+                      </Link>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Card.Body>
+            </Card>
+          </Col>
 
           {/* Product Grid */}
-          <main className="lg:col-span-3">
-            <div className="flex justify-between items-center mb-4 p-3 bg-white rounded-lg shadow-sm">
-              <h2 className="text-xl font-semibold text-gray-800">Tất Cả Sản Phẩm</h2>
-            </div>
+          <Col lg={9}>
+            <Card className="mb-4">
+              <Card.Body className="d-flex justify-content-between align-items-center">
+                <h4 className="mb-0">Tất Cả Sản Phẩm</h4>
+              </Card.Body>
+            </Card>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <Row xs={1} sm={2} md={3} className="g-4">
               {products.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg shadow overflow-hidden group">
-                  <Link to={`/products/${product.id}`} className="block">
-                    <img
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={300}
-                      height={300}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </Link>
-                  <div className="p-3">
+                <Col key={product.id}>
+                  <Card className="h-100">
                     <Link to={`/products/${product.id}`}>
-                      <h4 className="text-sm font-medium text-gray-800 truncate group-hover:text-red-600 transition-colors h-10">
-                        {product.name}
-                      </h4>
+                      <Card.Img
+                        variant="top"
+                        src={product.image}
+                        style={{ objectFit: 'cover', height: '200px' }}
+                        className="hover-zoom"
+                      />
                     </Link>
-                    <div className="flex items-center my-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-4 h-4 ${
-                            i < product.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <p className="text-base font-semibold text-red-600">{product.price}</p>
-                  </div>
-                </div>
+                    <Card.Body>
+                      <Link to={`/products/${product.id}`} className="text-decoration-none text-dark">
+                        <Card.Title as="h6" className="text-truncate">{product.name}</Card.Title>
+                      </Link>
+                      <div className="d-flex align-items-center mb-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            size={16}
+                            className={i < product.rating ? 'text-warning fill-warning' : 'text-secondary'}
+                          />
+                        ))}
+                      </div>
+                      <Card.Text className="text-danger fw-bold">{product.price}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
               ))}
-            </div>
+            </Row>
 
             {/* Pagination */}
-            <nav className="mt-8 flex justify-center">
-              <ul className="flex items-center space-x-1">
-                <li>
-                  <a
-                    href="#"
-                    className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    Previous
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    aria-current="page"
-                    className="px-3 py-2 leading-tight text-red-600 bg-red-50 border border-red-300 hover:bg-red-100 hover:text-red-700"
-                  >
-                    1
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    2
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    3
-                  </a>
-                </li>
-                <li>
-                  <span className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300">...</span>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    73
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700"
-                  >
-                    Next
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </main>
-        </div>
-      </div>
+            <div className="d-flex justify-content-center mt-5">
+              <Pagination>
+                <Pagination.Prev>Previous</Pagination.Prev>
+                <Pagination.Item active>{1}</Pagination.Item>
+                <Pagination.Item>{2}</Pagination.Item>
+                <Pagination.Item>{3}</Pagination.Item>
+                <Pagination.Ellipsis disabled />
+                <Pagination.Item>{73}</Pagination.Item>
+                <Pagination.Next>Next</Pagination.Next>
+              </Pagination>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
-  )
+  );
 }

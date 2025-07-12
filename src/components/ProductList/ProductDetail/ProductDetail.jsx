@@ -1,204 +1,204 @@
-
-import {Link} from "react-router"
-import { useState } from "react"
-import { ChevronRight, ShoppingCart, Truck, CreditCard, ShieldCheck, Minus, Plus } from "lucide-react"
-
+import { Link } from "react-router";
+import { useState } from "react";
+import {
+  ChevronRight,
+  ShoppingCart,
+  Truck,
+  CreditCard,
+  ShieldCheck,
+  Minus,
+  Plus,
+} from "lucide-react";
+import {
+  Container,
+  Row,
+  Col,
+  Image,
+  Button,
+  ButtonGroup,
+  Card,
+  Form,
+} from "react-bootstrap";
 const productImages = [
-  { id: 1, src: "/placeholder.svg?width=600&height=600", alt: "Main filter view" },
-  { id: 2, src: "/placeholder.svg?width=100&height=100", alt: "Filter side view" },
+  {
+    id: 1,
+    src: "/placeholder.svg?width=600&height=600",
+    alt: "Main filter view",
+  },
+  {
+    id: 2,
+    src: "/placeholder.svg?width=100&height=100",
+    alt: "Filter side view",
+  },
   { id: 3, src: "/placeholder.svg?width=100&height=100", alt: "Filter parts" },
-  { id: 4, src: "/placeholder.svg?width=100&height=100", alt: "Filter angle view" },
+  {
+    id: 4,
+    src: "/placeholder.svg?width=100&height=100",
+    alt: "Filter angle view",
+  },
   { id: 5, src: "/placeholder.svg?width=100&height=100", alt: "Filter in use" },
-  { id: 6, src: "/placeholder.svg?width=100&height=100", alt: "Filter packaging" },
-]
+  {
+    id: 6,
+    src: "/placeholder.svg?width=100&height=100",
+    alt: "Filter packaging",
+  },
+];
 
-const sizes = ["PX-10", "PX-15", "PX-20"]
+const sizes = ["PX-10", "PX-15", "PX-20"];
 
 export default function ProductDetail() {
-  const [selectedImage, setSelectedImage] = useState(productImages[0])
-  const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState(sizes[0])
+  const [selectedImage, setSelectedImage] = useState(productImages[0]);
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
   const handleQuantityChange = (amount) => {
-    setQuantity((prev) => Math.max(1, prev + amount))
-  }
+    setQuantity((prev) => Math.max(1, prev + amount));
+  };
 
   return (
-    <div className="bg-white p-4 md:p-6">
-      <div className="container mx-auto">
-        <div className="mb-4 text-sm text-gray-600">
-          <Link to="/" className="hover:text-red-600">
-            Trang chủ
-          </Link>
-          <ChevronRight className="inline-block w-3 h-3 mx-1" />
-          <Link to="/product-list-page" className="hover:text-red-600">
-            Phụ Kiện Thủy Sinh Khác
-          </Link>
-          <ChevronRight className="inline-block w-3 h-3 mx-1" />
+    <div className="bg-white py-4">
+      <Container>
+        {/* Breadcrumb */}
+        <div className="mb-3 text-muted small">
+          <Link to="/" className="text-decoration-none text-muted">Trang chủ</Link>
+          <ChevronRight size={14} className="mx-1" />
+          <Link to="/product-list-page" className="text-decoration-none text-muted">Phụ Kiện Thủy Sinh Khác</Link>
+          <ChevronRight size={14} className="mx-1" />
           <span>Máy Lọc Thùng Haiyang Tích Hợp Tách Cặn Bẩn</span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Image Gallery */}
-          <div>
-            <div className="mb-4 border border-gray-200 rounded-lg overflow-hidden">
-              <image
-                src={selectedImage.src || "/placeholder.svg"}
-                alt={selectedImage.alt}
-                width={600}
-                height={600}
-                className="w-full h-auto object-contain aspect-square"
-              />
-            </div>
-            <div className="flex space-x-2 overflow-x-auto pb-2">
+        <Row className="g-4">
+          {/* Left Image Gallery */}
+          <Col md={6}>
+            <Image
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              fluid
+              rounded
+              className="border mb-3"
+            />
+            <div className="d-flex gap-2 flex-wrap">
               {productImages.map((img) => (
-                <button
+                <Button
                   key={img.id}
+                  variant={selectedImage.id === img.id ? "outline-danger" : "outline-secondary"}
+                  className="p-1 border"
                   onClick={() => setSelectedImage(img)}
-                  className={`block border-2 rounded-md overflow-hidden ${
-                    selectedImage.id === img.id ? "border-red-500" : "border-transparent"
-                  } hover:border-red-400 transition-all focus:outline-none focus:ring-2 focus:ring-red-500`}
                 >
-                  <image
-                    src={img.src || "/placeholder.svg"}
-                    alt={img.alt}
-                    width={80}
-                    height={80}
-                    className="object-cover aspect-square"
-                  />
-                </button>
+                  <Image src={img.src} alt={img.alt} width={80} height={80} rounded />
+                </Button>
               ))}
             </div>
-          </div>
+          </Col>
 
-          {/* Product Details */}
-          <div>
-            <h1 className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">
-              Máy Lọc Thùng HaiYang Tích Hợp Tách Cặn Bẩn
-            </h1>
-            <div className="text-sm text-gray-500 mb-1">
-              Mã Sản Phẩm: <span className="text-gray-700">PVN6438</span>
-            </div>
-            <div className="text-sm text-gray-500 mb-1">
-              Loại: <span className="text-gray-700">Đồ Điện</span>
-            </div>
-            <div className="text-sm text-gray-500 mb-1">
-              Hãng: <span className="text-gray-700">Nhập Khẩu</span>
-            </div>
-            <div className="text-sm text-gray-500 mb-1">
-              Bảo hành: <span className="text-gray-700">1 tháng</span>
-            </div>
-            <div className="text-sm text-gray-500 mb-3">
-              Kho: <span className="text-green-600 font-medium">Còn hàng (2)</span>
-            </div>
+          {/* Product Info */}
+          <Col md={6}>
+            <h2>Máy Lọc Thùng HaiYang Tích Hợp Tách Cặn Bẩn</h2>
+            <p className="text-muted small">Mã Sản Phẩm: <strong className="text-dark">PVN6438</strong></p>
+            <p className="text-muted small">Loại: <strong className="text-dark">Đồ Điện</strong></p>
+            <p className="text-muted small">Hãng: <strong className="text-dark">Nhập Khẩu</strong></p>
+            <p className="text-muted small">Bảo hành: <strong className="text-dark">1 tháng</strong></p>
+            <p className="text-muted small">Kho: <strong className="text-success">Còn hàng (2)</strong></p>
 
-            <div className="text-3xl font-bold text-red-600 mb-4">1.600.000₫</div>
+            <h3 className="text-danger fw-bold mt-3 mb-4">1.600.000₫</h3>
 
-            <div className="mb-4">
-              <label className="text-sm font-medium text-gray-700 mb-1 block">Kích thước</label>
-              <div className="flex space-x-2">
+            {/* Size selection */}
+            <div className="mb-3">
+              <Form.Label>Kích thước</Form.Label>
+              <div className="d-flex gap-2">
                 {sizes.map((size) => (
-                  <button
+                  <Button
                     key={size}
+                    variant={selectedSize === size ? "danger" : "outline-danger"}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-4 py-2 border rounded-md text-sm font-medium transition-colors
-                      ${
-                        selectedSize === size
-                          ? "bg-red-600 text-white border-red-600"
-                          : "bg-white text-red-600 border-red-500 hover:bg-red-50"
-                      }
-                      focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1`}
                   >
                     {size}
-                  </button>
+                  </Button>
                 ))}
               </div>
             </div>
 
-            <div className="mb-6">
-              <label htmlFor="quantity" className="text-sm font-medium text-gray-700 mb-1 block">
-                Số lượng
-              </label>
-              <div className="flex items-center">
-                <button
+            {/* Quantity Selector */}
+            <div className="mb-4">
+              <Form.Label>Số lượng</Form.Label>
+              <div className="d-flex align-items-center">
+                <Button
+                  variant="outline-danger"
                   onClick={() => handleQuantityChange(-1)}
-                  className="px-3 py-2 border border-red-500 text-red-500 rounded-l-md hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500"
-                  aria-label="Decrease quantity"
                 >
-                  <Minus className="h-4 w-4" />
-                </button>
-                <input
-                  id="quantity"
+                  <Minus size={16} />
+                </Button>
+                <Form.Control
                   type="number"
                   value={quantity}
                   readOnly
-                  className="w-16 text-center border-t border-b border-red-500 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="text-center mx-2"
+                  style={{ width: 60 }}
                 />
-                <button
+                <Button
+                  variant="outline-danger"
                   onClick={() => handleQuantityChange(1)}
-                  className="px-3 py-2 border border-red-500 text-red-500 rounded-r-md hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500"
-                  aria-label="Increase quantity"
                 >
-                  <Plus className="h-4 w-4" />
-                </button>
+                  <Plus size={16} />
+                </Button>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <button className="flex-grow px-6 py-3 bg-red-600 text-white rounded-md font-semibold hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 flex items-center justify-center">
-                <ShoppingCart className="mr-2 h-5 w-5" /> MUA NGAY
-              </button>
-              <button className="flex-grow px-6 py-3 border border-red-600 text-red-600 rounded-md font-semibold hover:bg-red-50 hover:text-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 flex items-center justify-center">
+            {/* Buy/Add buttons */}
+            <div className="d-flex flex-column flex-sm-row gap-2 mb-4">
+              <Button variant="danger" className="w-100 d-flex align-items-center justify-content-center">
+                <ShoppingCart size={18} className="me-2" />
+                MUA NGAY
+              </Button>
+              <Button variant="outline-danger" className="w-100">
                 THÊM VÀO GIỎ HÀNG
-              </button>
+              </Button>
             </div>
 
-            <hr className="my-6 border-gray-200" />
+            <hr />
 
-            <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">GIỚI THIỆU SẢN PHẨM</h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
+            {/* Product Description */}
+            <div className="mb-4">
+              <h5>GIỚI THIỆU SẢN PHẨM</h5>
+              <p className="small text-muted">
                 Lọc thùng Haiyang là một trong những dòng lọc ngoài được ưa chuộng trong giới chơi thủy sinh và nuôi cá
                 cảnh. Với thiết kế hiện đại, hiệu suất mạnh mẽ và khả năng lọc nước tối ưu, sản phẩm này giúp duy trì
-                môi trường nước trong sạch, giảm thiểu công sức vệ sinh bể. Đặc biệt, khay tách phân hiệu quả là điểm
-                nhấn nổi bật, giúp giữ lại cặn bẩn lớn trước khi nước đi vào hệ thống lọc chính, giảm tải cho vật liệu
-                lọc bên trong.
+                môi trường nước trong sạch, giảm thiểu công sức vệ sinh bể...
               </p>
             </div>
 
-            <hr className="my-6 border-gray-200" />
+            <hr />
 
+            {/* Policy */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-3">CHÍNH SÁCH</h3>
-              <div className="space-y-3">
-                <div className="flex items-start">
-                  <Truck className="h-6 w-6 text-red-600 mr-3 mt-1 shrink-0" />
+              <h5>CHÍNH SÁCH</h5>
+              <div className="d-flex flex-column gap-3 mt-3">
+                <div className="d-flex">
+                  <Truck className="text-danger me-3" />
                   <div>
-                    <h4 className="font-medium text-gray-700">GIAO HÀNG TẬN NƠI</h4>
-                    <p className="text-sm text-gray-600">
-                      Liên kết với những hãng giao hàng uy tín, nhanh chóng, đảm bảo
-                    </p>
+                    <strong>GIAO HÀNG TẬN NƠI</strong>
+                    <div className="small text-muted">Liên kết với những hãng giao hàng uy tín, nhanh chóng, đảm bảo</div>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <CreditCard className="h-6 w-6 text-red-600 mr-3 mt-1 shrink-0" />
+                <div className="d-flex">
+                  <CreditCard className="text-danger me-3" />
                   <div>
-                    <h4 className="font-medium text-gray-700">THANH TOÁN KHI NHẬN HÀNG</h4>
-                    <p className="text-sm text-gray-600">Kiểm tra hàng thoải mái trước khi thanh toán</p>
+                    <strong>THANH TOÁN KHI NHẬN HÀNG</strong>
+                    <div className="small text-muted">Kiểm tra hàng thoải mái trước khi thanh toán</div>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <ShieldCheck className="h-6 w-6 text-red-600 mr-3 mt-1 shrink-0" />
+                <div className="d-flex">
+                  <ShieldCheck className="text-danger me-3" />
                   <div>
-                    <h4 className="font-medium text-gray-700">BẢO HÀNH CHÍNH HÃNG</h4>
-                    <p className="text-sm text-gray-600">Cam kết sản phẩm chính hãng, bảo hành theo tiêu chuẩn</p>
+                    <strong>BẢO HÀNH CHÍNH HÃNG</strong>
+                    <div className="small text-muted">Cam kết sản phẩm chính hãng, bảo hành theo tiêu chuẩn</div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </div>
-  )
+  );
 }

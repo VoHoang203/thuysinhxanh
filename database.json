@@ -1,0 +1,230 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "john@example.com",
+      "password": "123456",
+      "address": "123 Main St, Hanoi",
+      "role": "user",
+      "phoneNumber": "0987654321",
+      "name": "John Doe"
+    },
+    {
+      "id": 2,
+      "email": "admin@example.com",
+      "password": "admin123",
+      "address": "456 Admin St, HCMC",
+      "role": "admin",
+      "phoneNumber": "0909090909",
+      "name": "Admin User"
+    }
+  ],
+  "fish": [
+    {
+      "id": 1,
+      "name": "Cá Betta Nemo",
+      "slug": "ca-betta-nemo",
+      "category": [1,2,9],
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/betta-nemo-1.jpg",
+      "price": 50000,
+      "discount": 10,
+      "stock": 20,
+      "status": true,
+      "numReviews": 5
+    },
+    {
+      "id": 2,
+      "name": "Cá Bảy Màu Koi Đen Short",
+      "slug": "ca-7-ma-u-koi-den-short",
+      "category": [2,5,6],
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-7-mau-koi-den-short.jpg",
+      "price": 30000,
+      "discount": 0,
+      "stock": 15,
+      "status": true,
+      "numReviews": 3
+    },
+    {
+      "id": 3,
+      "name": "Cá Nóc MBU (size 13 - 15)",
+      "slug": "ca-noc-mbu-size-13-15",
+      "category": [1,3],
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/noc-mbu.jpg",
+      "price": 3700000,
+      "discount": 0,
+      "stock": 15,
+      "status": true,
+      "numReviews": 3
+    },{
+      "id": 4,
+      "name": "Cá Pleco L177 - Gold Nugget",
+      "slug": "ca-pleco-l177-gold-nugget",
+      "category": [2,7],
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/pleco-l177.jpg",
+      "price": 1700000,
+      "discount": 0,
+      "stock": 15,
+      "status": true,
+      "numReviews": 3
+    },{
+      "id": 5,
+      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
+      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
+      "category": [1,2],
+      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
+      "price": 1700000,
+      "discount": 0,
+      "stock": 15,
+      "status": true,
+      "numReviews": 3
+    }
+
+
+  ],
+  "fishCategories": [
+    {
+      "id": 1,
+      "name": "Cá Ăn thịt",
+      "description": "Không nên nuôi cá ăn thịt xen kẽ với các giống cá khác nhau"
+    },
+    {
+      "id": 2,
+      "name": "Cá nước ngọt",
+      "description": "Phù hợp nuôi trong nước ngọt."
+    },
+    {
+      "id": 3,
+      "name": "Cá Nước mặn",
+      "description": "Phù hợp nuôi trong nước mặn."
+    },
+    {
+      "id": 4,
+      "name": "Tép",
+      "description": "Cùng họ với tôm, tép. Không nên nuôi cùng cá. Dọn bể tốt."
+    },
+    {
+      "id": 5,
+      "name": "Cá koi",
+      "description": "Cá chép Koi hay cụ thể hơn Cá chép Nishikigoi là một loại cá chép thường đã được thuần hóa, lai tạo để nuôi làm cảnh trong những hồ nhỏ, được nuôi phổ biến tại Nhật Bản"
+    },{
+      "id": 6,
+      "name": "Cá ăn tạp",
+      "description": "Thức ăn chính là các loại rêu, cám, tảo, tôm tép nhỏ hơn. Có thể nuối xen kẽ nhiều giống cá với nhau."
+    },
+    {
+      "id": 7,
+      "name": "Cá dọn bể",
+      "description": "Cá dọn bể & cá bống ăn tầng đáy của bể cá. Có thể nuối đen xen với các giống khác."
+    },
+    {
+      "id": 8,
+      "name": "Ốc",
+      "description": "Ăn rêu quanh bể. Có thể nuối xen kẽ tất cả các loại cá ăn tạp & ăn thịt"
+    },{
+      "id": 9,
+      "name": "Cá chọi beta",
+      "description": " Cá chọi, hay còn gọi là cá Betta, là một loài cá cảnh nước ngọt nổi tiếng với vẻ đẹp rực rỡ và tính cách hiếu chiến. Nên nuôi 1 mình 1 bể."
+    }
+    
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Máy Lọc Nước",
+      "slug": "may-loc-nuoc",
+      "category": 1,
+      "image": "/images/product1.jpg",
+      "price": 600000,
+      "discount": 5,
+      "stock": 10,
+      "status": "active",
+      "numReviews": 7
+    },
+    {
+      "id": 2,
+      "name": "Thức Ăn Cho Cá",
+      "slug": "thuc-an-ca",
+      "category": 2,
+      "image": "/images/product2.jpg",
+      "price": 75000,
+      "discount": 0,
+      "stock": 30,
+      "status": "active",
+      "numReviews": 12
+    }
+  ],
+  "productCategories": [
+    {
+      "id": 1,
+      "name": "Phụ Kiện",
+      "description": "Phụ kiện cho hồ cá"
+    },
+    {
+      "id": 2,
+      "name": "Thức Ăn",
+      "description": "Thức ăn cho các loại cá"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "userId": 1,
+      "fishDetailId": 1,
+      "productDetailId": null,
+      "blogDetailId": null,
+      "description": "Cá rất đẹp và khỏe mạnh!",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "fishDetailId": null,
+      "productDetailId": 1,
+      "blogDetailId": null,
+      "description": "Máy lọc dùng ổn, khá êm.",
+      "rating": 4
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "fishId": 2,
+          "quantity": 1
+        }
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "totalPrice": 680000,
+      "status": "pending",
+      "address": "123 Main St, Hanoi",
+      "createdAt": "2025-07-13T08:30:00Z"
+    }
+  ],
+  "orderItems": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "price": 600000
+    },
+    {
+      "id": 2,
+      "orderId": 1,
+      "fishId": 2,
+      "quantity": 1,
+      "price": 200000
+    }
+  ]
+}
