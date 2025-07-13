@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { Container, Row, Col, Form, Button, InputGroup, Card, ProgressBar } from 'react-bootstrap';
 import { User, Mail, Lock, Eye, EyeOff, Facebook, CheckCircle, XCircle, Fish, Droplets, KeyRound, Instagram, Twitter } from 'lucide-react';
 
