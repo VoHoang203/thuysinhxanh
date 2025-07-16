@@ -1,6 +1,6 @@
 import { Heart, Star } from "lucide-react";
 
-const StarRating = ({ rating }) => (
+export const StarRating = ({ rating }) => (
   <div className="flex">
     {[...Array(5)].map((_, i) => (
       <Star

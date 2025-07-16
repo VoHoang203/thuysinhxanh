@@ -4,7 +4,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 const initialAppContext = {
   isAuthenticated: false,
   setIsAuthenticated: () => {},
-  user: null,
+  user: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')): null,
   setUser: () => {},
   isAdmin: false,
   setIsAdmin: () => {},
@@ -40,7 +40,7 @@ export const AppProvider = ({ children }) => {
     if (user) {
       localStorage.setItem("userInfo", JSON.stringify(user));
       setIsAuthenticated(true);
-      setIsAdmin(user.role === "admin");
+      setIsAdmin(user[0].role === "admin");
     } else {
       localStorage.removeItem("userInfo");
       setIsAuthenticated(false);
@@ -51,6 +51,7 @@ export const AppProvider = ({ children }) => {
 
   const reset = () => {
     setUser(null);
+    localStorage.removeItem("userInfo");
   };
 
   return (

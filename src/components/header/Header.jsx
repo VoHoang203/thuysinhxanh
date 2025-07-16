@@ -9,8 +9,9 @@ import {
   Button,
 } from "react-bootstrap";
 
-import { Link, NavLink } from "react-router";
+import { Link, NavLink} from "react-router";
 import { CreditCard, Globe, ShoppingCart, Truck, User } from "lucide-react";
+import { useAuth } from "../../context/app.context";
 
 {
   /* 
@@ -24,21 +25,14 @@ import { CreditCard, Globe, ShoppingCart, Truck, User } from "lucide-react";
 */
 }
 const Header = () => {
-  {
-    /*Lưu trữ dữ liệu từ json server  */
-  }
   const [items, setItems] = useState([]);
-
-  {
-    /*Lưu dữ liệu tìm kiếm người dùng nhập*/
-  }
   const [searchInput, setSearchInput] = useState("");
 
   {
     /*fetch dữ liệu từ json server  */
   }
   useEffect(() => {
-    fetch("http://localhost:9999/products")
+    fetch("http://localhost:9999/fishCategories")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -49,20 +43,21 @@ const Header = () => {
       .catch((err) => console.error("Error fetching products:", err));
   }, []);
 
-  {
-    /* Lọc danh mục sản phẩm sử dụng set để lấy unique values*/
-  }
-  const uniqueCategory = [...new Set(items.map((item) => item.category))];
+  const uniqueCategory = [...new Set(items.map((item) => item.name))];
 
-  {
-    /* Function tìm kiếm sử dụng filter */
-  }
   const filterSearch = (searchInput) => {
     return items.filter((item) =>
       item.name.toLowerCase().includes(searchInput.toLowerCase())
     );
   };
 
+  const { user, setUser } = useAuth();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userInfo");
+    setUser(null);
+  };
+  console.log(user)
   return (
     <>
       {/* Header chính */}
@@ -90,15 +85,35 @@ const Header = () => {
               </Link>
             </div>
             <div className="flex gap-4">
-              <Link
-                to="/login"
-                className="flex items-center gap-1 hover:text-red-600"
-              >
-                <User size={14} /> ĐĂNG NHẬP
-              </Link>
-              <Link to="/register" className="hover:text-red-600">
-                ĐĂNG KÝ
-              </Link>
+              {!user ? (
+                <>
+                  <Link
+                    to="/login"
+                    className="flex items-center gap-1 hover:text-red-600"
+                  >
+                    <User size={14} /> ĐĂNG NHẬP
+                  </Link>
+                  <Link to="/register" className="hover:text-red-600">
+                    ĐĂNG KÝ
+                  </Link>
+                </>
+              ) : (
+                <NavDropdown
+                  title={`Chào, ${user[0].name}`}
+                  id="user-dropdown"
+                  className="hover:text-red-600"
+                >
+                  <NavDropdown.Item as={Link} to="/profile">
+                    Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/checkout">
+                    Checkout
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )}
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import {Star, ChevronRight, ListOrdered, Tag, Users} from "lucide-react"
-import {Link} from "react-router"
+import { ChevronRight, ListOrdered, Tag } from "lucide-react";
+import { Link } from "react-router";
 import {
   Container,
   Row,
@@ -9,84 +9,125 @@ import {
   Image,
   ListGroup,
   Pagination,
-  Button,
-} from 'react-bootstrap';
-const products = [
+  Spinner,
+} from "react-bootstrap";
+import { StarRating } from "../ProductCart";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const bestSellingProducts = [
   {
     id: 1,
-    name: "Máy Bơm Mc AQua",
-    price: "35.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 5,
+    name: "Thuốc Cá Vàng Goldy Sun...",
+    price: "170.000₫",
+    image: "/placeholder.svg",
   },
   {
     id: 2,
-    name: "Máy Lọc Thùng Haiyang Tích Hợp Tach Cặn Bẩn",
-    price: "1.450.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 4,
+    name: "Thức Ăn Viên Dán Luxury Pro",
+    price: "70.000₫",
+    image: "/placeholder.svg",
   },
-  {
-    id: 3,
-    name: "Đèn Rọi Chìm Tiểu Cư Siêu Gọn Cho Bể Summary",
-    price: "160.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 5,
-  },
+  { id: 3, name: "APC Mufan", price: "75.000₫", image: "/placeholder.svg" },
   {
     id: 4,
-    name: "Phân Nước All In One Pro V2",
-    price: "75.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 4,
+    name: "Thức Ăn Cám Cấp V-Mix",
+    price: "70.000₫",
+    image: "/placeholder.svg",
   },
-  {
-    id: 5,
-    name: "Vợt Tròn Rừng",
-    price: "30.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 3,
-  },
-  {
-    id: 6,
-    name: "Seachem Matrix Pod",
-    price: "30.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 5,
-  },
-  {
-    id: 7,
-    name: "Vi Sinh Tiêu",
-    price: "50.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 4,
-  },
-  {
-    id: 8,
-    name: "Slender Red Tail (Hemiodus Gracilis)",
-    price: "500.000₫",
-    image: "/placeholder.svg?width=200&height=200",
-    rating: 5,
-  },
-]
+];
 
-const bestSellingProducts = [
-  { id: 1, name: "Thuốc Cá Vàng Goldy Sun...", price: "170.000₫", image: "/placeholder.svg?width=50&height=50" },
-  { id: 2, name: "Thức Ăn Viên Dán Luxury Pro", price: "70.000₫", image: "/placeholder.svg?width=50&height=50" },
-  { id: 3, name: "APC Mufan", price: "75.000₫", image: "/placeholder.svg?width=50&height=50" },
-  { id: 4, name: "Thức Ăn Cám Cấp V-Mix", price: "70.000₫", image: "/placeholder.svg?width=50&height=50" },
-]
-
-const FilterCheckbox = ({ id, label }) => (
+const FilterCheckbox = ({ id, label, value, onChange }) => (
   <Form.Check
     type="checkbox"
     id={id}
     label={label}
+    value={value}
+    onChange={onChange}
     className="mb-2"
   />
 );
 
 export default function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [filters, setFilters] = useState({
+    category: [],
+    price: "",
+    search: "",
+  });
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const params = {
+          _per_page: 9,
+          _page: page,
+          price_gte: filters.price.split("-")[0] || undefined,
+          price_lte: filters.price.split("-")[1] || undefined,
+          q: filters.search || undefined,
+        };
+        if (filters.category.length > 0) {
+          params.category = filters.category;
+        }
+        const response = await axios.get("http://localhost:9999/fish", {
+          params,
+          paramsSerializer: (params) => {
+            const searchParams = new URLSearchParams();
+            Object.entries(params).forEach(([key, value]) => {
+              if (Array.isArray(value)) {
+                value.forEach((v) => searchParams.append(key, v));
+              } else if (value !== undefined) {
+                searchParams.append(key, value);
+              }
+            });
+            return searchParams.toString();
+          },
+        });
+
+        let data = response.data.data || [];
+
+        setProducts(data);
+        setTotalPages(response.data.pages || 1);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+      setLoading(false);
+    };
+
+    fetchProducts();
+  }, [filters, page]);
+
+  useEffect(() => {
+    setPage(1); // Reset về trang đầu khi thay đổi filter
+  }, [filters]);
+
+  const handleFilterChange = (e) => {
+    setFilters({ ...filters, [e.target.name]: e.target.value });
+  };
+
+  const handleCategoryChange = (e) => {
+    const value = Number(e.target.value);
+    const updated = e.target.checked
+      ? [...filters.category, value]
+      : filters.category.filter((cat) => cat !== value);
+    setFilters({ ...filters, category: updated });
+  };
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await axios.get("http://localhost:9999/fishCategories");
+        setCategories(res.data);
+      } catch (err) {
+        console.error("Lỗi load categories:", err);
+      }
+    };
+    fetchCategories();
+  }, []);
   return (
     <div className="bg-light py-4">
       <Container>
@@ -108,11 +149,15 @@ export default function ProductList() {
                   <ListOrdered size={18} className="text-danger me-2" />
                   LOẠI
                 </Card.Title>
-                <FilterCheckbox id="filter-all" label="Tất cả sản phẩm" />
-                <FilterCheckbox id="filter-fish" label="Cảnh" />
-                <FilterCheckbox id="filter-food" label="Thức ăn" />
-                <FilterCheckbox id="filter-accessory" label="Phụ kiện" />
-                <FilterCheckbox id="filter-plant" label="Cây thủy sinh" />
+                {categories.map((cat) => (
+                  <FilterCheckbox
+                    key={cat.id}
+                    id={`category-${cat.id}`}
+                    label={cat.name}
+                    value={cat.id}
+                    onChange={handleCategoryChange}
+                  />
+                ))}
               </Card.Body>
             </Card>
 
@@ -122,39 +167,52 @@ export default function ProductList() {
                   <Tag size={18} className="text-danger me-2" />
                   GIÁ THÀNH
                 </Card.Title>
-                <FilterCheckbox id="price-1" label="Giá dưới 1.000.000đ" />
-                <FilterCheckbox id="price-2" label="1.000.000đ - 2.000.000đ" />
-                <FilterCheckbox id="price-3" label="2.000.000đ - 3.000.000đ" />
-                <FilterCheckbox id="price-4" label="3.000.000đ - 5.000.000đ" />
-                <FilterCheckbox id="price-5" label="Giá trên 5.000.000đ" />
+                <Form.Select
+                  name="price"
+                  value={filters.price}
+                  onChange={handleFilterChange}
+                >
+                  <option value="">Tất cả</option>
+                  <option value="0-1000000">Dưới 1.000.000đ</option>
+                  <option value="1000000-2000000">
+                    1.000.000đ - 2.000.000đ
+                  </option>
+                  <option value="2000000-3000000">
+                    2.000.000đ - 3.000.000đ
+                  </option>
+                  <option value="3000000-5000000">
+                    3.000.000đ - 5.000.000đ
+                  </option>
+                  <option value="5000000-10000000">Trên 5.000.000đ</option>
+                </Form.Select>
               </Card.Body>
             </Card>
-
-            {/* <Card className="mb-4">
-              <Card.Body>
-                <Card.Title className="d-flex align-items-center mb-3">
-                  <Users size={18} className="text-danger me-2" />
-                  NHÀ CUNG CẤP
-                </Card.Title>
-                <FilterCheckbox id="supplier-apc" label="APC" />
-                <FilterCheckbox id="supplier-mufan" label="Mufan" />
-                <FilterCheckbox id="supplier-seachem" label="Seachem" />
-                <FilterCheckbox id="supplier-ista" label="Ista" />
-                <FilterCheckbox id="supplier-jbl" label="JBL" />
-              </Card.Body>
-            </Card> */}
 
             <Card>
               <Card.Body>
                 <Card.Title>SẢN PHẨM BÁN CHẠY</Card.Title>
                 <ListGroup variant="flush">
                   {bestSellingProducts.map((product) => (
-                    <ListGroup.Item key={product.id} className="p-0 mb-3 border-0 bg-transparent">
-                      <Link to={`/products/${product.id}`} className="d-flex text-decoration-none text-dark align-items-center">
-                        <Image src={product.image} width={40} height={40} rounded className="border me-2" />
+                    <ListGroup.Item
+                      key={product.id}
+                      className="p-0 mb-3 border-0 bg-transparent"
+                    >
+                      <Link
+                        to={`/products/${product.id}`}
+                        className="d-flex text-decoration-none text-dark align-items-center"
+                      >
+                        <Image
+                          src={product.image}
+                          width={40}
+                          height={40}
+                          rounded
+                          className="border me-2"
+                        />
                         <div>
                           <div className="small">{product.name}</div>
-                          <div className="fw-bold text-danger">{product.price}</div>
+                          <div className="fw-bold text-danger">
+                            {product.price}
+                          </div>
                         </div>
                       </Link>
                     </ListGroup.Item>
@@ -173,47 +231,71 @@ export default function ProductList() {
             </Card>
 
             <Row xs={1} sm={2} md={3} className="g-4">
-              {products.map((product) => (
-                <Col key={product.id}>
-                  <Card className="h-100">
-                    <Link to={`/products/${product.id}`}>
-                      <Card.Img
-                        variant="top"
-                        src={product.image}
-                        style={{ objectFit: 'cover', height: '200px' }}
-                        className="hover-zoom"
-                      />
-                    </Link>
-                    <Card.Body>
-                      <Link to={`/products/${product.id}`} className="text-decoration-none text-dark">
-                        <Card.Title as="h6" className="text-truncate">{product.name}</Card.Title>
+              {loading ? (
+                <div className="text-center w-100 py-5">
+                  <Spinner animation="border" />
+                </div>
+              ) : (
+                products.map((product) => (
+                  <Col key={product.id}>
+                    <Card className="h-100">
+                      <Link to={`/products/${product.id}`}>
+                        <Card.Img
+                          variant="top"
+                          src={product.image}
+                          style={{ objectFit: "cover", height: "200px" }}
+                        />
                       </Link>
-                      <div className="d-flex align-items-center mb-2">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            size={16}
-                            className={i < product.rating ? 'text-warning fill-warning' : 'text-secondary'}
-                          />
-                        ))}
-                      </div>
-                      <Card.Text className="text-danger fw-bold">{product.price}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
+                      <Card.Body>
+                        <Link
+                          to={`/products/${product.id}`}
+                          className="text-decoration-none text-dark"
+                        >
+                          <Card.Title as="h6" className="text-truncate">
+                            {product.name}
+                          </Card.Title>
+                        </Link>
+                        <div className="d-flex align-items-center mb-2">
+                          <StarRating rating={product.numReviews} />
+                        </div>
+                        <Card.Text className="text-danger fw-bold">
+                          {product.price?.toLocaleString("vi-VN")}₫
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))
+              )}
             </Row>
 
             {/* Pagination */}
             <div className="d-flex justify-content-center mt-5">
               <Pagination>
-                <Pagination.Prev>Previous</Pagination.Prev>
-                <Pagination.Item active>{1}</Pagination.Item>
-                <Pagination.Item>{2}</Pagination.Item>
-                <Pagination.Item>{3}</Pagination.Item>
-                <Pagination.Ellipsis disabled />
-                <Pagination.Item>{73}</Pagination.Item>
-                <Pagination.Next>Next</Pagination.Next>
+                <Pagination.Prev
+                  onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={page <= 1}
+                >
+                  Previous
+                </Pagination.Prev>
+
+                {[...Array(totalPages)].map((_, idx) => (
+                  <Pagination.Item
+                    key={idx + 1}
+                    active={page === idx + 1}
+                    onClick={() => setPage(idx + 1)}
+                  >
+                    {idx + 1}
+                  </Pagination.Item>
+                ))}
+
+                <Pagination.Next
+                  onClick={() =>
+                    setPage((prev) => Math.min(prev + 1, totalPages))
+                  }
+                  disabled={page >= totalPages}
+                >
+                  Next
+                </Pagination.Next>
               </Pagination>
             </div>
           </Col>
