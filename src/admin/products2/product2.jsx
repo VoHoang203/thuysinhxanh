@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { X, Trash2 } from "lucide-react";
 
-// Toggle Switch component
+
 const ToggleSwitch = ({ label, enabled, setEnabled }) => (
   <div className="flex items-center">
     <label className="text-sm font-medium text-gray-700 mr-4">{label}</label>
@@ -22,7 +22,7 @@ const ToggleSwitch = ({ label, enabled, setEnabled }) => (
   </div>
 );
 
-// Product Modal
+
 const ProductModal = ({ product, onClose, onSave, isEditMode, categories }) => {
   const [formData, setFormData] = useState(product);
 
@@ -186,7 +186,7 @@ const ProductModal = ({ product, onClose, onSave, isEditMode, categories }) => {
   );
 };
 
-// MAIN component
+
 export default function ProductsPage2() {
   const [productList, setProductList] = useState([]);
   const [categories, setCategories] = useState([]);

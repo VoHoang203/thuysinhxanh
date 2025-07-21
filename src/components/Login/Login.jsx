@@ -83,7 +83,6 @@ const Login = () => {
   return (
     <Container fluid className="vh-100 p-0">
       <Row className="g-0 h-100">
-        {/* Left Side - Form */}
         <Col
           md={7}
           lg={6}
@@ -184,7 +183,6 @@ const Login = () => {
           </div>
         </Col>
 
-        {/* Right Side - Decorative */}
         <Col
           md={5}
           lg={6}

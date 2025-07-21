@@ -82,7 +82,7 @@ const Profile = () => {
   };
   const handleToggleOrder = async (orderId) => {
     if (expandedOrderId === orderId) {
-      setExpandedOrderId(null); // đóng lại nếu đang mở
+      setExpandedOrderId(null);
       return;
     }
 
@@ -98,7 +98,7 @@ const Profile = () => {
       }
     }
 
-    setExpandedOrderId(orderId); // mở
+    setExpandedOrderId(orderId);
   };
   return (
     <Container className="my-5">
@@ -107,15 +107,16 @@ const Profile = () => {
           <Col md={4} lg={3}>
             <Card className="shadow-sm">
               <Card.Body className="text-center">
-                <Image
-                  src={user.avatar}
-                  roundedCircle
-                  width={120}
-                  height={120}
-                  className="mb-3 border border-3 border-primary"
-                />
-                <h5 className="fw-bold">{user.name}</h5>
-                <p className="text-muted">{user.email}</p>
+                <Col md={12} className="text-center mb-4">
+                  <div className="position-relative d-inline-block">
+                    <Image
+                      src={user.avatar}
+                      roundedCircle
+                      width={150}
+                      height={150}
+                    />
+                  </div>
+                </Col>
               </Card.Body>
               <Nav variant="pills" className="flex-column p-2">
                 <Nav.Item>
@@ -152,11 +153,9 @@ const Profile = () => {
                 <Tab.Content>
                   <Tab.Pane eventKey="profile">
                     <div className="d-flex gap-2 align-item-center">
-                      {" "}
                       <User size={24} className="me-2 text-primary" />
                       <h4 className="fw-bold mb-4">Hồ Sơ Của Tôi</h4>
                     </div>
-
                     <Form onSubmit={handleProfileSubmit}>
                       <Row>
                         <Col md={12} className="text-center mb-4">
@@ -167,23 +166,11 @@ const Profile = () => {
                               width={150}
                               height={150}
                             />
-                            <Form.Control
-                              type="text"
-                              className="mt-2"
-                              placeholder="URL ảnh avatar"
-                              value={formData.avatar}
-                              onChange={(e) =>
-                                setFormData({
-                                  ...formData,
-                                  avatar: e.target.value,
-                                })
-                              }
-                            />
                           </div>
                         </Col>
                         <Col md={6}>
                           <Form.Group>
-                            <Form.Label>
+                            <Form.Label className="d-flex gap-2 align-item-center">
                               <User size={16} className="me-1" /> Họ và Tên
                             </Form.Label>
                             <Form.Control
@@ -200,7 +187,7 @@ const Profile = () => {
                         </Col>
                         <Col md={6}>
                           <Form.Group>
-                            <Form.Label>
+                            <Form.Label className="d-flex gap-2 align-item-center">
                               <Mail size={16} className="me-1" /> Email
                             </Form.Label>
                             <Form.Control
@@ -212,7 +199,7 @@ const Profile = () => {
                         </Col>
                         <Col md={6}>
                           <Form.Group>
-                            <Form.Label>
+                            <Form.Label className="d-flex gap-2 align-item-center">
                               <Phone size={16} className="me-1" /> SĐT
                             </Form.Label>
                             <Form.Control
@@ -229,7 +216,7 @@ const Profile = () => {
                         </Col>
                         <Col md={12}>
                           <Form.Group>
-                            <Form.Label>
+                            <Form.Label className="d-flex gap-2 align-item-center">
                               <MapPin size={16} className="me-1" /> Tỉnh/Thành
                             </Form.Label>
                             <Form.Select
@@ -333,7 +320,9 @@ const Profile = () => {
 
                     <Form onSubmit={handlePasswordChange}>
                       <Form.Group className="mb-3">
-                        <Form.Label>Mật khẩu hiện tại</Form.Label>
+                        <Form.Label className="d-flex gap-2 align-item-center">
+                          Mật khẩu hiện tại
+                        </Form.Label>
                         <Form.Control
                           type="password"
                           value={passwords.current}
@@ -346,7 +335,9 @@ const Profile = () => {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3">
-                        <Form.Label>Mật khẩu mới</Form.Label>
+                        <Form.Label className="d-flex gap-2 align-item-center">
+                          Mật khẩu mới
+                        </Form.Label>
                         <Form.Control
                           type="password"
                           value={passwords.newPass}
@@ -359,7 +350,9 @@ const Profile = () => {
                         />
                       </Form.Group>
                       <Form.Group className="mb-3">
-                        <Form.Label>Xác nhận mật khẩu mới</Form.Label>
+                        <Form.Label className="d-flex gap-2 align-item-center">
+                          Xác nhận mật khẩu mới
+                        </Form.Label>
                         <Form.Control
                           type="password"
                           value={passwords.confirm}

@@ -37,9 +37,7 @@ const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const itemCarts = useCartStore((state) => state.items);
   const totalQuantity = itemCarts.reduce((sum, item) => sum + item.quantity, 0);
-  {
-    /*fetch dữ liệu từ json server  */
-  }
+ 
   useEffect(() => {
     fetch("http://localhost:9999/fishCategories")
       .then((res) => {

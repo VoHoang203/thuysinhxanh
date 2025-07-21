@@ -16,28 +16,6 @@ import { StarRating } from "../ProductCart";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const bestSellingProducts = [
-  {
-    id: 1,
-    name: "Thuốc Cá Vàng Goldy Sun...",
-    price: "170.000₫",
-    image: "/placeholder.svg",
-  },
-  {
-    id: 2,
-    name: "Thức Ăn Viên Dán Luxury Pro",
-    price: "70.000₫",
-    image: "/placeholder.svg",
-  },
-  { id: 3, name: "APC Mufan", price: "75.000₫", image: "/placeholder.svg" },
-  {
-    id: 4,
-    name: "Thức Ăn Cám Cấp V-Mix",
-    price: "70.000₫",
-    image: "/placeholder.svg",
-  },
-];
-
 const FilterCheckbox = ({ id, label, value, onChange }) => (
   <Form.Check
     type="checkbox"
@@ -187,7 +165,7 @@ export default function ProductList() {
               </Card.Body>
             </Card>
 
-            <Card>
+            {/* <Card>
               <Card.Body>
                 <Card.Title>SẢN PHẨM BÁN CHẠY</Card.Title>
                 <ListGroup variant="flush">
@@ -218,7 +196,7 @@ export default function ProductList() {
                   ))}
                 </ListGroup>
               </Card.Body>
-            </Card>
+            </Card> */}
           </Col>
 
           {/* Product Grid */}

@@ -54,7 +54,7 @@ export default function Home() {
       <div className="mb-8">
         <ThuySinhCarousel />
       </div>
-      {/* Cham soc khach hang */}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8 text-center">
         <div className="flex flex-col items-center">
           <Truck size={40} className="text-red-600 mb-2" />
@@ -85,7 +85,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-      {/* Product Sections */}
+
       <div className="space-y-12">
         <section>
           <div className="bg-blue-500 text-white py-2 px-4 mb-4 flex items-center gap-2 uppercase font-bold text-sm">

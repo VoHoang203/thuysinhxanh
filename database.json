@@ -243,6 +243,39 @@
       "status": true,
       "ban": false,
       "reviews": []
+    },
+    {
+      "id": "ac65",
+      "name": "",
+      "image": "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753069803/uploads/ixqtziqtqgeamhx3y4rh.png",
+      "images": [],
+      "price": 0,
+      "discount": 0,
+      "stock": 0,
+      "rating": 0,
+      "category": "Tép",
+      "description": "",
+      "status": false,
+      "ban": false,
+      "reviews": []
+    },
+    {
+      "id": "e799",
+      "name": "Võ Hoàng",
+      "image": "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753086421/uploads/capape0r8gwujjwfm4gt.png",
+      "images": [
+        "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753086424/uploads/rrylkzziibhunhgd58fb.jpg",
+        "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753086434/uploads/yrcrsmqvmen5mddpp74n.jpg"
+      ],
+      "price": "120000",
+      "discount": "30",
+      "stock": 0,
+      "rating": 0,
+      "category": 1,
+      "description": "",
+      "status": true,
+      "ban": false,
+      "reviews": []
     }
   ],
   "fishCategories": [
@@ -404,6 +437,22 @@
       "status": "pending",
       "address": "Hà Nội",
       "createdAt": "2025-07-21T03:21:38.713Z"
+    },
+    {
+      "id": "4d48",
+      "userId": 1,
+      "totalPrice": 1700000,
+      "status": "pending",
+      "address": "xdfssdfdsfs",
+      "createdAt": "2025-07-21T08:42:19.331Z"
+    },
+    {
+      "id": "872f",
+      "userId": 1,
+      "totalPrice": 30000,
+      "status": "pending",
+      "address": "Hà Nội ",
+      "createdAt": "2025-07-21T08:44:23.135Z"
     }
   ],
   "orderItems": [
@@ -426,6 +475,13 @@
       "orderId": "c7a8",
       "productId": "2",
       "quantity": 16,
+      "price": 30000
+    },
+    {
+      "id": "fc96",
+      "orderId": "872f",
+      "productId": "2",
+      "quantity": 1,
       "price": 30000
     }
   ]

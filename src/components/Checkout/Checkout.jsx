@@ -68,7 +68,7 @@ export default function Checkout() {
 
   return (
     <main className="container mx-auto py-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
-      {/* Left: Shipping Info */}
+
       <div>
         <h2 className="text-xl font-semibold mb-4">Thông tin nhận hàng</h2>
         <form className="space-y-4 bg-white p-6 rounded-lg shadow-sm">

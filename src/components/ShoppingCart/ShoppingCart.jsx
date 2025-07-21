@@ -119,7 +119,6 @@ export default function ShoppingCart() {
 
       <div className="mt-4 d-flex justify-content-between align-items-center">
         <div>
-          {/* This space can be used for notes or other info if needed */}
         </div>
         <div className="text-right">
           <div className="d-flex justify-content-between align-items-center text-xl font-bold mb-4">

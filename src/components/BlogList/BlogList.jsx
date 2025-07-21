@@ -12,13 +12,11 @@ const Bloglist = () => {
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
   const currentBlogs = data.blogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
-  // Tính tổng số trang
   const totalPages = Math.ceil(data.blogs.length / blogsPerPage);
 
-  // Hàm chuyển trang
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo(0, 0); // Cuộn lên đầu trang khi chuyển trang
+    window.scrollTo(0, 0); 
   };
   return (
     <div style={{ paddingLeft: "50px" }}>
