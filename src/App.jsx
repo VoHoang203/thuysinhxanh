@@ -17,6 +17,7 @@ import DashboardLayout from "./admin/dashboard-layout";
 import Dashboard from "./admin/dashboard-content";
 import CategoriesPage from "./admin/categories/categories";
 import ProductsPage from "./admin/products/products";
+import ProductsPage2 from "./admin/products2/product2";
 import ProfilePage from "./admin/profile/admin-profile";
 import { useAuth } from "./context/app.context";
 const ProtectedRoute = () => {
@@ -24,6 +25,12 @@ const ProtectedRoute = () => {
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
   }
+  return <Outlet />;
+};
+const AdminRoute = () => {
+  const { isAuthenticated, isAdmin } = useAuth();
+  if (!isAuthenticated) return <Navigate to="/login" />;
+  if (!isAdmin) return <Navigate to="/" />;
   return <Outlet />;
 };
 function App() {
@@ -43,14 +50,16 @@ function App() {
       </Route>
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/admin" element={<DashboardLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="users" element={<UsersPage />} />
-        <Route path="orders" element={<OrdersPage />} />
-        <Route path="categories" element={<CategoriesPage />} />
-        <Route path="products" element={<ProductsPage />} />
-        <Route path="users" element={<UsersPage />} />
-        <Route path="profile" element={<ProfilePage />} />
+      <Route element={<AdminRoute />}>
+        <Route path="/admin" element={<DashboardLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="orders" element={<OrdersPage />} />
+          <Route path="categories" element={<CategoriesPage />} />
+          <Route path="fish" element={<ProductsPage />} />
+          <Route path="products" element={<ProductsPage2 />} />
+          <Route path="profile" element={<ProfilePage />} />
+        </Route>
       </Route>
     </Routes>
   );

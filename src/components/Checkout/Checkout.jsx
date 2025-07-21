@@ -1,83 +1,109 @@
 import { useState, useMemo } from "react";
 import { CircleHelp } from "lucide-react";
 import { Link } from "react-router";
+import useCartStore from "../../store/useCartStore";
+import { useAuth } from "../../context/app.context";
+import { formatCurrency } from "../../utils/lib";
 
-// NOTE: In a real application, this data should come from your global state
-// management (Context, Zustand, etc.) instead of being duplicated here.
-const initialProducts = [
-  {
-    id: 1,
-    name: "Máy Lọc Treo Xiaoli Sunsun XBL",
-    model: "XBL-300",
-    price: 240000,
-    quantity: 1,
-    image: "/placeholder.svg?width=64&height=64",
-  },
-  {
-    id: 2,
-    name: "Thức Ăn Viên Dán Luxury Mix",
-    model: "",
-    price: 69000,
-    quantity: 1,
-    image: "/placeholder.svg?width=64&height=64",
-  },
-];
 
-function formatCurrency(amount) {
-  return new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "VND",
-  }).format(amount);
-}
 
 export default function Checkout() {
-  // This state is for demonstration. In a real app, get cartItems from a global store.
-  const [cartItems] = useState(initialProducts);
+  const { items: cartItems, clearCart  } = useCartStore();
+  const { user } = useAuth();
+  const [email,setEmail ]=useState(user.email);
+  const [name, setName] = useState(user.name);
+  const [phone, setPhone] = useState(user.phoneNumber);
+  const [address, setAddress] = useState(user.address);
 
   const subtotal = useMemo(
     () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
     [cartItems]
   );
 
+  const handlePlaceOrder = async () => {
+    if (!name || !phone || !address) {
+      alert("Vui lòng điền đầy đủ thông tin nhận hàng.");
+      return;
+    }
+
+    try {
+      const resOrder = await fetch("http://localhost:9999/orders", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: 1,
+          totalPrice: subtotal,
+          status: "pending",
+          address,
+          createdAt: new Date().toISOString(),
+        }),
+      });
+
+      if (!resOrder.ok) throw new Error("Tạo đơn hàng thất bại.");
+
+      const order = await resOrder.json();
+
+      await Promise.all(
+        cartItems.map((item) =>
+          fetch("http://localhost:9999/orderItems", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              orderId: order.id,
+              productId: item.productId,
+              quantity: item.quantity,
+              price: item.price,
+            }),
+          })
+        )
+      );
+
+      alert("Đặt hàng thành công!");
+      clearCart();
+    } catch (err) {
+      console.error(err);
+      alert("Lỗi khi đặt hàng.");
+    }
+  };
+
   return (
     <main className="container mx-auto py-10 grid grid-cols-1 lg:grid-cols-2 gap-12">
-      {/* Left Column: Shipping and Payment */}
+      {/* Left: Shipping Info */}
       <div>
         <h2 className="text-xl font-semibold mb-4">Thông tin nhận hàng</h2>
         <form className="space-y-4 bg-white p-6 rounded-lg shadow-sm">
           <input
             type="email"
             placeholder="Email (tùy chọn)"
-            className="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 border rounded-md"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="text"
             placeholder="Họ và tên"
-            className="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 border rounded-md"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <input
             type="tel"
             placeholder="Số điện thoại"
-            className="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 border rounded-md"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <input
             type="text"
             placeholder="Địa chỉ"
-            className="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 border rounded-md"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
           />
-          <select className="w-full p-3 border rounded-md bg-white text-gray-500 focus:ring-blue-500 focus:border-blue-500">
-            <option>Tỉnh thành</option>
-          </select>
-          <select className="w-full p-3 border rounded-md bg-white text-gray-500 focus:ring-blue-500 focus:border-blue-500">
-            <option>Quận huyện</option>
-          </select>
-          <select className="w-full p-3 border rounded-md bg-white text-gray-500 focus:ring-blue-500 focus:border-blue-500">
-            <option>Phường xã</option>
-          </select>
           <textarea
             placeholder="Ghi chú (tùy chọn)"
             rows="3"
-            className="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+            className="w-full p-3 border rounded-md"
           ></textarea>
         </form>
 
@@ -98,14 +124,17 @@ export default function Checkout() {
         </div>
       </div>
 
-      {/* Right Column: Order Summary */}
+      {/* Right: Order Summary */}
       <div className="bg-white p-6 rounded-lg shadow-sm h-fit">
         <h2 className="text-xl font-semibold mb-4 border-b pb-4">
           Đơn hàng ({cartItems.length} sản phẩm)
         </h2>
         <div className="space-y-4 max-h-60 overflow-y-auto py-4">
           {cartItems.map((item) => (
-            <div key={item.id} className="flex items-center justify-between">
+            <div
+              key={item.productId}
+              className="flex items-center justify-between"
+            >
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <img
@@ -119,7 +148,7 @@ export default function Checkout() {
                 </div>
                 <div>
                   <p className="font-medium">{item.name}</p>
-                  <p className="text-sm text-gray-500">{item.model}</p>
+                  <p className="text-sm text-gray-500">{item.model || ""}</p>
                 </div>
               </div>
               <p className="font-medium">
@@ -128,19 +157,7 @@ export default function Checkout() {
             </div>
           ))}
         </div>
-        <div className="border-t pt-4 mt-4 flex gap-3">
-          <input
-            type="text"
-            placeholder="Nhập mã giảm giá"
-            className="w-full p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
-          />
-          <button
-            className="px-6 bg-blue-500 text-white rounded-md hover:bg-blue-600 disabled:bg-gray-300"
-            disabled
-          >
-            Áp dụng
-          </button>
-        </div>
+
         <div className="border-t pt-4 mt-4 space-y-2">
           <div className="flex justify-between">
             <span>Tạm tính</span>
@@ -151,6 +168,7 @@ export default function Checkout() {
             <span>-</span>
           </div>
         </div>
+
         <div className="border-t pt-4 mt-4">
           <div className="flex justify-between items-center text-lg font-bold">
             <span>Tổng cộng</span>
@@ -159,11 +177,15 @@ export default function Checkout() {
             </span>
           </div>
         </div>
+
         <div className="mt-6 flex justify-between items-center">
-          <Link href="/cart" className="text-blue-500 hover:underline">
+          <Link to="/cart" className="text-blue-500 hover:underline">
             &lt; Quay về giỏ hàng
           </Link>
-          <button className="px-8 py-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600">
+          <button
+            onClick={handlePlaceOrder}
+            className="px-8 py-4 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600"
+          >
             ĐẶT HÀNG
           </button>
         </div>

@@ -9,9 +9,17 @@ import {
   Button,
 } from "react-bootstrap";
 
-import { Link, NavLink} from "react-router";
-import { CreditCard, Globe, ShoppingCart, Truck, User } from "lucide-react";
+import { Link, NavLink } from "react-router";
+import {
+  CreditCard,
+  Globe,
+  Search,
+  ShoppingCart,
+  Truck,
+  User,
+} from "lucide-react";
 import { useAuth } from "../../context/app.context";
+import useCartStore from "../../store/useCartStore";
 
 {
   /* 
@@ -27,7 +35,8 @@ import { useAuth } from "../../context/app.context";
 const Header = () => {
   const [items, setItems] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-
+  const itemCarts = useCartStore((state) => state.items);
+  const totalQuantity = itemCarts.reduce((sum, item) => sum + item.quantity, 0);
   {
     /*fetch dữ liệu từ json server  */
   }
@@ -56,8 +65,9 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("userInfo");
     setUser(null);
+    localStorage.removeItem("carts");
   };
-  console.log(user)
+  console.log(user);
   return (
     <>
       {/* Header chính */}
@@ -99,7 +109,7 @@ const Header = () => {
                 </>
               ) : (
                 <NavDropdown
-                  title={`Chào, ${user[0].name}`}
+                  title={`Chào, ${user.name}`}
                   id="user-dropdown"
                   className="hover:text-red-600"
                 >
@@ -120,10 +130,10 @@ const Header = () => {
         <header className="py-4 border-b">
           <Container
             fluid
-            className="d-flex flex-wrap align-items-center justify-content-center mx-auto px-3 gap-4"
+            className="d-flex align-items-center justify-content-center px-3 flex-wrap"
           >
             {/* Logo */}
-            <Link to="/" className="d-flex align-items-center">
+            <Link to="/" className="d-flex align-items-center me-4">
               <img
                 src="https://thuysinh365.com/storage/thumb/logo-min_1588056111.png"
                 alt="ThuySinh Logo"
@@ -134,20 +144,11 @@ const Header = () => {
 
             {/* Search */}
             <Form
-              className="d-flex flex-grow-1 mx-4"
-              style={{ maxWidth: "600px", position: "relative" }}
+              className="d-flex flex-grow-1 me-4 gap-2"
+              style={{ maxWidth: "500px", position: "relative" }}
             >
               <Button variant="danger">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-search"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
+                <Search />
               </Button>
               <FormControl
                 type="search"
@@ -156,8 +157,7 @@ const Header = () => {
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
               />
-
-              {/*Hiển thị sản phẩm tìm kiếm */}
+              {/* Hiển thị kết quả tìm kiếm */}
               {searchInput && (
                 <ul
                   className="list-group position-absolute w-100"
@@ -181,93 +181,69 @@ const Header = () => {
               )}
             </Form>
 
-            {/* Thông tin liên hệ  */}
-            <div className="text-end d-flex gap-5 align-bottom">
-              <p className="mb-0 fw-bold text-danger fs-5 text-center">
+            {/* Liên hệ & Cart */}
+            <div className="d-flex align-items-center gap-4">
+              <div className="text-center">
                 <img
                   src="https://alofone.vn/wp-content/uploads/2019/06/zalo-logo.png"
-                  alt="ThuySinh Logo"
                   width="60"
-                  height="60"
+                  alt="Zalo"
                 />
-                <Link to="/Zalo">📞Zalo</Link>
-              </p>
-              <p className="mb-0 fw-bold text-danger text-center fs-5">
+                <div>
+                  <Link to="/Zalo">Zalo</Link>
+                </div>
+              </div>
+              <div className="text-center">
                 <img
                   src="https://static.vecteezy.com/system/resources/thumbnails/018/930/698/small/facebook-logo-facebook-icon-transparent-free-png.png"
-                  alt="ThuySinh Logo"
                   width="60"
-                  height="60"
+                  alt="Facebook"
                 />
-                <Link to="https://www.facebook.com">FaceBook</Link>
-              </p>
-            </div>
+                <div>
+                  <Link to="https://www.facebook.com">Facebook</Link>
+                </div>
+              </div>
 
-            {/* Cart */}
-            <Link to="/cart" className="ms-3 relative">
-              <ShoppingCart size={40} />
-              <span className="absolute -top-1 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                0
-              </span>
-            </Link>
+              {/* Cart */}
+              <Link to="/cart" className="position-relative">
+                <ShoppingCart size={40} />
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  {totalQuantity}
+                </span>
+              </Link>
+            </div>
           </Container>
         </header>
 
         {/* Header phụ */}
         {/* Menu Navbar */}
-        <Navbar
-          bg="primary"
-          variant="dark"
-          expand="md"
-          className="d-flex justify-content-center"
-        >
-          <Container>
+        <Navbar bg="primary" variant="dark" expand="md" className="py-2">
+          <Container className="d-flex justify-items-center">
             <Navbar.Toggle aria-controls="main-navbar" />
             <Navbar.Collapse id="main-navbar">
-              <Nav className="me-auto">
-                {/* Danh mục sản phẩm */}
-                <NavDropdown
-                  title="Danh mục sản phẩm"
-                  id="basic-nav-dropdown"
-                  active
-                >
-                  {uniqueCategory.map((category, index) => (
-                    <NavDropdown.Item key={index}>{category}</NavDropdown.Item>
+              <Nav className="me-auto align-items-center">
+                <NavDropdown title="Danh mục sản phẩm" id="category-dropdown">
+                  {uniqueCategory.map((category, idx) => (
+                    <NavDropdown.Item key={idx}>{category}</NavDropdown.Item>
                   ))}
                 </NavDropdown>
 
-                <Nav className="d-flex gap-3 ms-4 text-white fw-medium small">
-                  <Nav.Link
-                    href="/"
-                    className="border-bottom border-white pb-2"
-                  >
-                    TRANG CHỦ
-                  </Nav.Link>
-                  <Nav.Link
-                    href="/blogs"
-                    className="border-bottom border-transparent pb-2 hover-border-white"
-                  >
-                    KIẾN THỨC THỦY SINH
-                  </Nav.Link>
-                  <Nav.Link
-                    href="/products"
-                    className="border-bottom border-transparent pb-2 hover-border-white"
-                  >
-                    PHỤ KIỆN THỦY SINH
-                  </Nav.Link>
-                  <Nav.Link
-                    href="/products"
-                    className="border-bottom border-transparent pb-2 hover-border-white"
-                  >
-                    CÁ CẢNH, TÉP CẢNH
-                  </Nav.Link>
-                  <Nav.Link
-                    href="/products"
-                    className="border-bottom border-transparent pb-2 hover-border-white"
-                  >
-                    MẪU BỂ ĐẸP
-                  </Nav.Link>
-                </Nav>
+                {/* Các NavLink */}
+                <NavLink to="/" end className="nav-link">
+                  TRANG CHỦ
+                </NavLink>
+                <NavLink to="/blogs" className="nav-link">
+                  KIẾN THỨC THỦY SINH
+                </NavLink>
+                <NavLink to="/products" className="nav-link">
+                  PHỤ KIỆN THỦY SINH
+                </NavLink>
+                <NavLink to="/products" className="nav-link">
+                  CÁ CẢNH, TÉP CẢNH
+                </NavLink>
+                <NavLink to="/products" className="nav-link">
+                  MẪU BỂ ĐẸP
+                </NavLink>
               </Nav>
             </Navbar.Collapse>
           </Container>

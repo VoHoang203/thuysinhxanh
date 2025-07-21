@@ -1,4 +1,5 @@
 import { Users, Package, ShoppingCart, DollarSign } from "lucide-react";
+import RevenueChart from "./components/revenue-chart"
 
 const StatCard = ({ title, value, icon, change, isPositive }) => (
   <div className="bg-white p-4 rounded-lg shadow-sm border">
@@ -85,6 +86,7 @@ export default function Dashboard() {
           Calculate
         </button>
       </div>
+      <RevenueChart />
     </div>
   );
 }

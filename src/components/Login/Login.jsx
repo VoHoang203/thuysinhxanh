@@ -44,22 +44,33 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const { setIsAuthenticated, setUser } = useAuth();
+  const { setIsAuthenticated, setUser, setIsAdmin } = useAuth();
   const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.get(`http://localhost:9999/users?email=${email}`);
+      const response = await axios.get(
+        `http://localhost:9999/users?email=${email}`
+      );
       const user = response.data;
-      if(user[0].password !== password){
-        alert("Sai pass")
+      if (user[0].password !== password) {
+        alert("Sai pass");
+        return;
+      }
+      if (user[0].role === "admin") {
+        setUser(user[0]);
+        localStorage.setItem("userInfo", JSON.stringify(user[0]));
+        setIsAdmin(true);
+        setIsAuthenticated(true);
+        navigate("/admin");
         return;
       }
       if (user) {
-        setUser(user);
-        localStorage.setItem("userInfo", JSON.stringify(user));
-        setIsAuthenticated(true)
+        setUser(user[0]);
+        localStorage.setItem("userInfo", JSON.stringify(user[0]));
+        setIsAuthenticated(true);
+        setIsAdmin(false);
         navigate(`/`);
       } else {
         setError("Email hoặc mật khẩu không đúng!");

@@ -1,58 +1,32 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Trash2, ChevronRight } from "lucide-react";
-import { Link } from "react-router"; // Đảm bảo sử dụng Link từ react-router-dom
+import { Link } from "react-router";
 import { Table, Button, Row, Col, Card, Badge, Form } from "react-bootstrap";
+import useCartStore from "../../store/useCartStore";
+import { formatCurrency } from "../../utils/lib";
 
-// NOTE: In a real application, this data and state should be managed globally
-// using React Context, Zustand, Redux, or passed down from a parent component.
-const initialProducts = [
-  {
-    id: 1,
-    name: "Máy Lọc Treo Xiaoli Sunsun XBL",
-    model: "XBL-300",
-    price: 240000,
-    quantity: 1,
-    image: "/placeholder.svg?width=80&height=80",
-  },
-  {
-    id: 2,
-    name: "Thức Ăn Viên Dán Luxury Mix",
-    model: "",
-    price: 69000,
-    quantity: 1,
-    image: "/placeholder.svg?width=80&height=80",
-  },
-];
 
-function formatCurrency(amount) {
-  return new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "VND",
-  }).format(amount);
-}
 
 export default function ShoppingCart() {
-  const [cartItems, setCartItems] = useState(initialProducts);
+  const items = useCartStore((state) => state.items);
+  const changeQuantity = useCartStore((state) => state.changeQuantity);
+  const removeItem = (productId) => changeQuantity({ productId, quantity: 0 });
 
-  const handleQuantityChange = (id, delta) => {
-    setCartItems(
-      cartItems
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
+  const handleQuantityChange = (productId, delta) => {
+    const item = items.find((item) => item.productId === productId);
+    if (!item) return;
+
+    const newQuantity = item.quantity + delta;
+    changeQuantity({ productId, quantity: newQuantity });
   };
 
-  const handleRemoveItem = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
+  const handleRemoveItem = (productId) => {
+    removeItem(productId);
   };
 
   const totalPrice = useMemo(
-    () => cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
-    [cartItems]
+    () => items.reduce((sum, item) => sum + item.price * item.quantity, 0),
+    [items]
   );
 
   return (
@@ -81,8 +55,8 @@ export default function ShoppingCart() {
               </tr>
             </thead>
             <tbody>
-              {cartItems.map((item) => (
-                <tr key={item.id}>
+              {items.map((item) => (
+                <tr key={item.productId}>
                   <td>
                     <img
                       src={item.image || "/placeholder.svg"}
@@ -105,7 +79,7 @@ export default function ShoppingCart() {
                     <div className="d-flex justify-content-center">
                       <Button
                         variant="outline-secondary"
-                        onClick={() => handleQuantityChange(item.id, -1)}
+                        onClick={() => handleQuantityChange(item.productId, -1)}
                       >
                         -
                       </Button>
@@ -117,7 +91,7 @@ export default function ShoppingCart() {
                       />
                       <Button
                         variant="outline-secondary"
-                        onClick={() => handleQuantityChange(item.id, 1)}
+                        onClick={() => handleQuantityChange(item.productId, 1)}
                       >
                         +
                       </Button>
@@ -131,7 +105,7 @@ export default function ShoppingCart() {
                   <td className="text-center">
                     <Button
                       variant="outline-danger"
-                      onClick={() => handleRemoveItem(item.id)}
+                      onClick={() => handleRemoveItem(item.productId)}
                     >
                       <Trash2 size={18} />
                     </Button>

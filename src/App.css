@@ -32,3 +32,15 @@
       "Open Sans", "Helvetica Neue", sans-serif;
   }
 }
+nav-link.active {
+  background-color: white !important;
+  color: #0d6efd !important;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.nav-link:hover {
+  background-color: #ffffffcc;
+}
+.navbar-nav .nav-link {
+  margin-right: 1rem;
+}

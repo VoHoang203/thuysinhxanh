@@ -10,6 +10,7 @@ import {
   ListGroup,
   Pagination,
   Spinner,
+  Button,
 } from "react-bootstrap";
 import { StarRating } from "../ProductCart";
 import axios from "axios";
@@ -51,7 +52,7 @@ const FilterCheckbox = ({ id, label, value, onChange }) => (
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
-    category: [],
+    category: "",
     price: "",
     search: "",
   });
@@ -71,7 +72,7 @@ export default function ProductList() {
           price_lte: filters.price.split("-")[1] || undefined,
           q: filters.search || undefined,
         };
-        if (filters.category.length > 0) {
+        if (filters.category) {
           params.category = filters.category;
         }
         const response = await axios.get("http://localhost:9999/fish", {
@@ -79,9 +80,7 @@ export default function ProductList() {
           paramsSerializer: (params) => {
             const searchParams = new URLSearchParams();
             Object.entries(params).forEach(([key, value]) => {
-              if (Array.isArray(value)) {
-                value.forEach((v) => searchParams.append(key, v));
-              } else if (value !== undefined) {
+              if (value !== undefined) {
                 searchParams.append(key, value);
               }
             });
@@ -103,19 +102,11 @@ export default function ProductList() {
   }, [filters, page]);
 
   useEffect(() => {
-    setPage(1); // Reset về trang đầu khi thay đổi filter
+    setPage(1);
   }, [filters]);
 
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
-  };
-
-  const handleCategoryChange = (e) => {
-    const value = Number(e.target.value);
-    const updated = e.target.checked
-      ? [...filters.category, value]
-      : filters.category.filter((cat) => cat !== value);
-    setFilters({ ...filters, category: updated });
   };
   useEffect(() => {
     const fetchCategories = async () => {
@@ -131,17 +122,19 @@ export default function ProductList() {
   return (
     <div className="bg-light py-4">
       <Container>
-        {/* Breadcrumb */}
-        <div className="mb-3 text-muted">
-          <Link to="/" className="text-decoration-none text-muted me-1">
-            Trang chủ
-          </Link>
-          <ChevronRight size={14} className="mx-1 d-inline-block" />
-          <span>Tất Cả Sản Phẩm</span>
+        <div className="mb-3 text-muted d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+          <div>
+            <Link to="/" className="text-decoration-none text-muted me-1">
+              Trang chủ
+            </Link>
+            <ChevronRight size={14} className="mx-1 d-inline-block" />
+            <span>Tất Cả Sản Phẩm</span>
+          </div>
+
+          {/* Search & Clear */}
         </div>
 
         <Row>
-          {/* Sidebar */}
           <Col lg={3}>
             <Card className="mb-4">
               <Card.Body>
@@ -150,12 +143,18 @@ export default function ProductList() {
                   LOẠI
                 </Card.Title>
                 {categories.map((cat) => (
-                  <FilterCheckbox
+                  <Form.Check
                     key={cat.id}
+                    type="radio"
+                    name="category"
                     id={`category-${cat.id}`}
                     label={cat.name}
                     value={cat.id}
-                    onChange={handleCategoryChange}
+                    checked={filters.category === String(cat.id)}
+                    onChange={(e) => {
+                      setFilters({ ...filters, category: e.target.value });
+                    }}
+                    className="mb-2"
                   />
                 ))}
               </Card.Body>
@@ -227,8 +226,21 @@ export default function ProductList() {
             <Card className="mb-4">
               <Card.Body className="d-flex justify-content-between align-items-center">
                 <h4 className="mb-0">Tất Cả Sản Phẩm</h4>
+                <Button
+                  variant="success"
+                  onClick={() =>
+                    setFilters({
+                      category: "",
+                      price: "",
+                      search: "",
+                    })
+                  }
+                >
+                  Xóa bộ lọc
+                </Button>
               </Card.Body>
             </Card>
+           
 
             <Row xs={1} sm={2} md={3} className="g-4">
               {loading ? (

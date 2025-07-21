@@ -8,6 +8,7 @@ export default function Sidebar() {
     { href: "/admin", icon: Home, label: "Dashboard" },
     { href: "/admin/orders", icon: ShoppingCart, label: "Orders" },
     { href: "/admin/categories", icon: LayoutGrid, label: "Category" },
+    { href: "/admin/fish", icon: Fish, label: "Fish" },
     { href: "/admin/products", icon: Package, label: "Products" },
     { href: "/admin/users", icon: Users2, label: "Users" },
     { href: "/admin/profile", icon: User, label: "Profile" },

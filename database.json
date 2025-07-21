@@ -1,17 +1,20 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "john@example.com",
       "password": "123456",
       "address": "123 Main St, Hanoi",
       "role": "user",
       "phoneNumber": "0987654321",
       "name": "John Doe",
-      "avatar": "https://via.placeholder.com/150"
+      "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN0AAADkCAMAAAArb9FNAAABTVBMVEX/////dRMAAAD2+N5FvT//qGf/dxP/ehTxWQz9/+RHwkH/exRHw0H/qmr//+hIxkKHQAr4cxLxcBL3WwzhaRHaZhDIyMj/cgvAWg6WRwu6urqDg4Px8fHS0tLQYQ+xUw3l5eWdnZ13d3fe3t5NTU1uNQh2OAmiTAyysrJ+PAlOJgZdXV3r6+u+WQ6XRwtpaWkzGQQ9HgUhISH/jUFhLwcgVx09qDg2lDE7OztcLAdCIAUVFRXCwsIuLi5ISEj/gi+QkJD/nlobSRh/f3//fif3Zw9ZIQTS078/rjoteykmZyI5nDRnZ14mEwMbDgKmpqb/l1D/iTupPgjFSQmYOAeGMQZ7LgagoZKHiHrExbJ3d22xsqAXPxUnayMwgywQLg8HGAYgEAIsEALbUQpQHQRYIQRtKAW9RQkJIAgTNREACwDj5c8KHglrbGGCg3dLcCxtAAAYt0lEQVR4nO1d+1fa2Bau23qioAgpKChPEVEQUGst4qNY22pbxb61ta11Zu5Mp3b6//949z5JIOckgagRZK3ude+6t5iE82W/H+dw585v+k2/6Tf9pltJi4nNo8z0TKVY3N7a2qrOVmYy84l4r1d1bUpvZnZnwYmKmUSvF3hVShztVg0YhblgvhSNRMJhNRQKqWokmYrlljSE8/3Gw8WpaR1YYSGfDDO/wogGWkT/VFgkv8oBbvZ6wa5pcWpmgwNbLUdVRRFBScQUv5IM4rUbmV4v2w0lplcI2HKwxIE549KwhcJJ4mxyHe+57fimKoRsKRgNdQTGwZU0xYOlsqou4P9O9RqAM00VuTSmVL+/M9c4RUzGc11VUQNnb6d9meBcW0gyP0vmgwvBfHKgIz6WF5xD0J88BLh95mWxTqubS6KJSK42V5vsyLuw6PuWBhS0L9O9RiPSBPnq9SiadyWybFrsodKRecncXCoaTc0Z0qkoSZTOXgMy0RGZyLKqoBzSmzdTR3RoM5nm9lLGHUw9hGqvMRlEIlmIKlzFWEEEl3JjWAyYjPg3x+8owFavYXEibHNhDRuad1178uEQC0VSkUuAQ1JKq2X9QYXbwL0MGUm1KX6adDWiBthLYePsM25hNSj2GNuUiI2ogd7OlZ/rCLTR27gliyHyqiqbjWiysyGxhyO9FBWgh4nRNAaSESuSqzCOKQpmQ9FkhMLS5oeow73ClsAMIKU4ImE6uYKmplrufz3PHQtT2YCSg93egEPGrYYc1o6uKxzNx4LBcioZcn4BOik8NYBqZXp6usLTwUJS8ccgygZCANkeYFvcAog6qBdjpZw5soqF2wFUwjVM6+otENk6CkWhDKByC7zdfXCb+P0OjGOhGGGarc9vTkxMZWYoiKk5vQgtsqlOSI+fIA5yT6ksgfzHGyf0cTGH9SoU8c+YV7R4hHyuhe2vD9Xs0zn0NLUQPS7adZ9eaUrl5KTEOBUT0bolOyNe2L4OtQHb9rlcHINylbFUaKnLXgG/N8wIGXv0+vUjpgNUQ/xNw+yi3T3zKMo2nAOoOH7NDAALQjDa5pIboG1YQpWbZPeHxjjthDjX8FX7U85VkXgVDkMSOLYEM22+aAYOiX8AXczUt2GZRPLV2NiQRmNDxD2WgwaqXBsTUIRDSUUXOiRxKCRJhvw78hhCu29EcJNPhgxsBO/+pLbWDoFTEQpm3WPJjpEIoRuIdM8pVGAJwT0yYUN0ryZ12exQzKpC0ARPOexYPZmAQwxYGt0STXQFIRkcoUN3rax2jJri6MRarCu5KC4UoUSiOe/N6jtQglvLJyK4obHXaiGPcrbS8f4pWGoyT1l2YeqzeAM+uTtWE/BVDgwMyTRJFUlXQcU2fwCnsKWysJi1SmAVQxbWnUyhCAvKwOSOzLoQOnEMLN3ofqLJPFaWTCHl+LAiy+ARxJhSg7RXEJxpCs6ZRemGxp6QTfGvuiuwVg3Nk5e8pcfcUrFhEZYVVLwu1N55YDspYRvi4CjqsLkjMbWZFj+Zh6BecBFvaDb4ZP++AZQo1L3EYUvTMIdyeV90BjtaHMaiNgaTyxpsCeoYh3NFVzszl+ZNGZOY0BXRjkVuvnwUJ2cgmRQD3AAKj0Uwt43l1s2fVilt467c/DrMPWexxr6LDj3kwhxfk3YpypdYZ4AbUAogB8/F1nrNpmKaUm7O7LrpU3N5V7ROdbSyyo0bTY11ktY181fr9yfMCzZ9fgT5DujEfC5D6GpwdLPhSoaiqMnXZtaNPWpld7AhXV8xL9jEvE008ZpkmiVwy3Sx6LrryGtef9++yYBlA8LIuh0xADMlanIGvWFGZ1KxCVjgHI8IKOqmi0XrP8NdSDTYoMfYpo4eUILH9yFB60zxvhWdGZzZyid0dKoQqsRb10oRjGaFGFMixMCZmxHQaerlCDZFy3uakilbtRUzOpMQbuoOT9LUlppK/Gl1yJRQWTbAXtEGvUJBMIfM4KxWZcaMzuQt5jWrQtmu4AizmurJHfMJyLWSJobhG2x4X2ZJY0CET3dkHVo1aVlZB5tZ1zwCJUBSVJLI1I8spdndVtjN76KZgbrX6HgAJVjMMaEaxhYsGcJ0C5z5T9tknWxCMQcCGBBJKbmL1y9Du/TGJ1+10JkN5sCAbSjYlE3BCDb1CMObzv2rDGUlIlFRccNb48Itl9mVjz0Sv1O1CZYmeCxWSZs/26Rg1bilM/NAi9skfOsW23M90t64o2DyUMxG2+PZtPRJkepA+i3Bjjn3jFCIaX3ZnKdVwDg3KuaKw45chC65iuPT0DCZwE5lpk2L1hnwcl6ODGRhFRf1yFHtBrhPcNGLquj+QEMXaX9PFlqMlr+t4GGtRQufzOjuy+hc9aLQZ5uXq6TawUsD5B1bR53Li+5pioe+ZnSvZXRU4+pYM17RnV3znphz9Trh3GfS+e6V6s0DDZE8aYuObGAH2ayYAw8NXt7JOdfbcW6A26R2PYjLoePq0h4dTaq0NdTT0LAuMgqwYmXfRJvWrvF14FWlTENnCjPHnti9zljbL6zbO68QxlZVMXebqtKgZqeB3LxXhkXTO5Piye5Ohxds0wSqaF0/m7uSNaCZ/Yl0PB5PT2SoZLHsYuTFs9aXnrY0C7VWh6AvtOw0WJldgYYTNzB3WxDSwYVIxzkJui3m0ShSQp+7M+CNOX05DVZuWE11HGPO1bYrVSKp4GqhVlgNpiJup3mstfqrUdrovE2+3qFuq53W6csM5RCfWONJUI2l1EnUMP0musSgkrLkkV0xaqw0BvBkwF4sje+M0GxNdXoqkV5czE4c8fJR+dLDfooLxYt51PoSY4xOCwvHDs1qtFq69OSYEinkOo+Le9X6mjVyTnfE/GqpPLdeKOSC+SRzYyKk+9HKLHdmnuqR4k2LBYB2C4uofmIV0/ToSoOaoSUXeork96hGPWW0bjqCo1GjueS1pk9D5/qY1iRRmwsxU0h7gS4NNZcTpeEcH9dPXR0frnmdvmzyyaudnZ37zBkfy3k0h6Q1gNwQU0IltJoNm7FUd/enYIkzTpuIGbMmW61Lgx6NyFWk3KUDwPB6hxC/zc36nFazge0UGNn31a5E824VTycqzJWvAo9FeR3AXPaWK1Sta2MeoYubCyJOZLYClF66tbPCihe4lEyaOxZyEad5rVe8u7NtGqRxwMbuv9p5dd+IZGhQyibj6USY4tNdwuyBU1jrmd7dOeokmmQFxmjsz7ACmO7JqbgL8vOwSOzxOommZzaTelBt0ZmsQLOZfhXm+Xnp1B06r/zdnU5W0zyjYxg59OyxS2uecsh9jyvJ9De86qenK+L8oUTiavQMSTWNhblGt8oV3J1V8SgSS/CRC+dIevLVkBmdzjzkw6VFk5W1Gs4rFx7BmzmWxSLGHqlyGyMhzUIYMzo5x2KyM0W0oM+FN0fJ96D0MA9wXlJYOyMhCNKQ0ZdFPlxmb6FGyrkmIwhPi8QcQxVl3QOTOU1RB+OvypF5Eu+Gmmbl8ujwJq1nN/no1c7QzqsnjmGm/WzapcEZATE4enSxo96UzBTk/ZcFhy4a9A2X7TMgfPq1q9FTNDTffNycAysk//S6yTtYcNoJZb9iqk2DU+VTJKV2fcE0d5lYytkE2ggm7yKiWLtO9Zg/uUw7w2IAUb/wud3VkevPxomNa+dlmodSm2V4skO0PTumuqq+KtGatl2Rir6rYa1qwZiCz7AJJNAxXrsituHWYyE8vZI7ZNgBTGbWFYWfS7Ga7FBhwZw3fw6wpO0GpqIvFPJJVQ1HY1SHt0EXub5NWXRTmtLhDbyiGHqolUqjYtCqFJVvWQs6F8conae9k4WkcQVj+UazYnhetqnR48OvzTpjZs0dvkkWMu3qQtbpgRhjJb47MpcKM/EUGaqcDUTy/K9BYRMiUyL5XKGwupCy3ZuIFu761b7NK8TBBoVMBgm5k+IQoLaQj0bCKm39VcORaH5BOxNiLmqV3HYlQ0+2jG42h7QvHQ6zmjhJg09IxqRTEvRadT5y2bon5j4eHOKR0MMTJVnrfJKIgG2gBjV5xXRQhZpMBXPry4eNxuHyei6YSpq3YLsGF/OmCg0N8jU03Hqp0yjI6C077IvlVWq/Xzs650plT9Rob4aNtjCk5ds93QX7+kkiUZTAzl2OqxIVpLypFmWg7I84b1CWvzdZKqWCZD4OO/T0rwnOo/2Gi9BAIbNOa9lLlKrbiVz08rrkGlzSMl18daIevbWqzHLGpIx4sFuqXM6XwlfoabkmKgM3PDsfIWvbbMIIkpt7xspR4fMr2gn34DDueTPs3dkdRTPrFCMmCvNDVJRIw32o5gGxEJqrt/fu/eOZbMZb1SKaStYdA1Mb0AjHaGqme+Boau6PP+8ND9/zbot9xmAPzyxbdTF+ZoibFqlX2MLIuPeIDdG98e68sW3NZpLIm6rtDA3kkt2Azc2oHs+k/njLwQ0P/+ndcWNxnl/RfnLTfBPjmmdFpoSjKTpUxWtslAW/u6eDGx72cM/aBAqkf6FVYNHBWbwgBmDN89yu2nq1IXwsndfyfriJDXnn4eQwnTgigCO/HZSrHUqUToosBPN5wmgZtb8qNDVP0y/vTNiG7731dJP2tFSnYsutyXsDG51xUyvx9FQhn7t+be3D50TKlP/V3rRkcvjpJJkAT89+mBamQZWgZQaCbM5Ss3KAnunwKt07/Wam5+z8AKE/3v3ZxPZU/zKvz+1A4cwZtoKUTnRzTK3JB1SF6H0w5ng0FRNJ0YiFMGNPRlP5Oe081L+a0J4+bd2a8nybb0IrfSi4jtC6efB+QAvba5J3wGj3MBgs51OpUjSZjEToFOUm4b+SSNFSKpXKl2PBhbncemFZmC4DePYOw5J7OjDpxaU9RqdvcCzkVmkR4mh6yc6I+Jfsygyd6fzvD+/fvXk7jMjgr7c2pXZvyg5WOjJ2WZeFbQV5kkqr6AWhvjmPavP+/YcPfyM94/Q/aDx7Rv/88OHD+/fv3r178xfMTySy2UWuSuhcURaJZcgxFPf1pJRwMLZ+c2dPprPZOxWhW0LdArsxZlaGeVzs/+6JNAzPpE+eCSbiCODpU6NUH0U5WU6ZDlxj/uT5DR+suSKMVSkOZQk+TZKFv01+SnPE0if3/hIN4AwcNisBWvUd1lPhAW501FSh3UFPnpCkdqp9x8a/jLqf0ONeM7oPEro/pJI5Jsyt08cwtNNOij2sFQgobN30ccRbbUbiWkDDFAtuYnAoYnkr4kUptNsza9ZjKkvrhxhuTd/84WK7jhUypjanp5Q56mofwRsJ3T863qeGnfdbI2LUvYJwLCfz52Ai3p3jjSacwhAl0koAw5wlGfhHQvcGUqKRZzZn2aW3MLIVGg7l7p1v7jDcQbmz0XdQlngouAtvdUbxWAODkpTcrgrZ5mp0fIlphBUNc3eObrpDUxBLdqHVXEtfMBvk2/Eq8nvAZUpirdqHVbRDA0Mi/Xn+XBfPYpzlQ5Qi45KNZjufO3iuJUXZAKGfkEYLwk7N/TRtZViI8BA01dUzXjdQ9YR4hc5tap6FSqGZ1oCqyrNzbEHmZsQ5rlrkm9Zrq1Td7ua59BgwHTb3IqFPovZxM0WiN63L0YZ8kLmSk9OLJNTbfNG8dmzObJcPeMVvLfBeaiiSJzcba7o6EkvjTVvm4DAEFmWVRTvNQ1n3dXeBpszHcARb5o3KS4YFiGvD92Z0yxI3Wal71vBSlKjPbmD8UDkqNs2JVi5uilHa0uhSDkGsx6ARvcW/1EE03fRh5M+3WjFF1jJvrMChBV3Xz929HM3r1T/GYuJxZxNiJkiXyEOseMst/x0n6jUoNNdwLm1yn7c0pEOyJqKL6MWB15ehDJUkqDZXjEufy1NCqqyJLNeNMwivR0fcck7LXKhbfnQlLGuistrNU3evSmmb0y8xU5PD7aQ834MOsPuL9YaK8hAd+u68hG6pb9FZw8ySbGcUzzYVdJ02JNdNZWRp75Ny8wcs3hRZwkzMsaX0zi417xOy7D9B3y2ld/apeT/QoiXMtKZ3andPmfeQrGEmk9M759T81tOEZXhVWZePmWqTmt9ymrKEmZjeWRph9V4v84p0ZNn66m/IyWvH1PzWUt1StFZkH4EO8Ham5p3JGmYyueGO6G55au5IFcteDWt6d+tTc0fatpzDp8qTICx421NzR9qw7HMOy9s3+iA1dyLrT2pa07uct2dhdpGsYWbSkt6t90NqbkdxS5/PJr3r29Q8a9kjZZPe9W1qnrBWMy3du/5NzadkJbNJ7/o3NbeGmdb0rn9Tc5sw05Le9W9qvmvZWY32X+o0929qXoFIKNQavUTy10DaSNi/qbkxEXi+VCus5uaCsXLqHGhYM6yqIabQDjwl3Lep+RZ8Oihubwk/lSDQUm29APVeL/OKBBAYCRCNDA4OXlzs7X38CFunxye/Pv13MLtd1VH3a2oO1cCgQCODMBsY4aShHhk57dfUPA4HIyK6wQv5o5Hjfk3Ns/DJik76aOSkX1PzBJzI6PbkjxBdn6bmm3AsoRv5KH808qlfU/N5OJXRnVrQHfRrap6Bj1Z0EuBAsV9T82nYk9Edy4AD1X5N7yqwR4gChmtDJ3eCgJFM6Fb6FV3zJ/tWtrZnDw4+/To5mYWT09OPH/f2Li4uEDgi7+pUqZe0BQ8ef/737Pu3Npt+Vm54Y8jNEXwbHx0dpf/67t69u7+/trb2Gb5+/fr8+ZcXLx4QcgLer6k5nI3eFWn8M/gMIuDj475+Tc3j8NiC7gykj/b7NTVPwwMLOoBx8ZO1fk3NE/DFZ0H3XUL3sl9T8014LqPzwb8iO30vod7rdV6N5uGrjO6urIq+h95ure4eZeChjG5fVkXf135Nzafhpcy6NXghAvY979fUfAb2ZXQvZUOD6Po0NZ8FGRxqmWRofC/6NTWvgsVkPpQNje9Bv6bmG7LnJhsiGZrRB/2amsNZC53P0DIZ3eM+Tc3j8Nmw/qNrDzk+3xduRjGEbqL7t0/TOwwzDRCPMZH7OsptyBoievngwZr+p9HvfYoua/g25M/sMcBLH2nZ/t3xL5S16hI6+qM/0GXn65Vto9uzUi3uzujWH5XtIBDYIy1ELSO7ubL3EXRf6IONYtV8V2Yz3WskMqUz261Kwrez7z+0/6/xxwdA1aEDFEpMXumfFyOBU52xPu3Kn2dnP1vViOLRLbKj9DuKsPXp+OPFYCAQQB5Ryr2/9vDhqO7jqLg+coqsHP8O41/hJID/BCONXbvroxvGH8BFYPBi7+PxAf2qffWWxGcJlKvt04uAXscLbBsRim4YUdeo7jd4gQH0+I8f44/hgsqA/0lhGooo74ZRWfDiGEVho5t7lJ1oF+C/i0CrQDlyIrk0tBvaXzG188HPcVgJaGVb4TLM836ZHhK4+HTjB424oFk0EUIHcuSjHCjDrMYUFFlMXve1FhcKqhCToScUi9SBi62eV8uKMDsoN7HgXyEA0+FwdJi8vtTaJDK68Z8gPYb6J17/SvvlKAPbMjZqDAisWzM6dvB5HJPXhzo6STL3oRiwPKnY05Z6HCwvnCveS58Nuj20KvvwwkAnXoXhtdzq4y+kl66+brckWfFMija6Bl90yUS+mG3mqGZJ5Ucd97LoYsc6Mv2fhdqJNvhA3hwN43MDLHwTL1qxCCZ/lNdHvrmnLEZYNksKrAhZ6/iZ9g7g2zil5ppHQAabCyyiPzA9qoeiOWWrK4Mjv4RqEYaZpyODgV8YqlBqjt58b4RMz5r5mheWLq2Gbqt36DKWtriG7lQsnuyjAAc+wg8fT81HX0J1BLE+MLuN8W+2Mt5jdLYvHLVFKMki82AWUOu01BwDypUq/DArHb4AWxnvqWQ6oZMU7+4owjujdBXRoRtAMYTHAjgHf0DoNnqGru6AbuSToFQ8nuZyiOEW/WGU/8cM39YfEPWwuefEOznKaqF4YK3fcrL3BxQB9K5BZB220enC2pbU0H221G85Sx9aJ66013TSwzJ8wjrkplEA5A6rRuNgj87BH5AC97AcCGCPDlPTNTsY+2ArmU7+AF1+70IVavLYmzqMD+0UD02jtSt0t40/qPa0x2CbIxDtWTvmd3lMZu3GOvuDwElPWUdWs2ovU5bm/10eTG5LsTMnB38QOPX6TOhLUwWqFzbvHRMCq4L5fkJ2BsNoyx9s/UHg2Isfa7o2PHQLFnw2iudDFs2QIXo+LvW4bPzBSOBi1rsf57gGHQFsHF/oc+oGBS4wSubzRHykiKaKXp7xKkkWg7Kv+z4+ZkSE/+cF7Im3BwZPiwDbt6I3xI+53Ph00qRfRPDtBdEDg74ZBbx4sVly/vHz+9nZv59/QPHg4L9Pn379wpuPT34dUOF965ZUa3HBR60VO1KxKWfpTLFabbO/BKBa77nGiZSdQEo0KatTGmmRqN298Xh8cTGdzeJ99JBb1EP4Tb/pN/2m3/Sb+oX+D8T411StQvgkAAAAAElFTkSuQmCC",
+      "banned": false,
+      "phone": "0123456789",
+      "status": "Not Active"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "admin@example.com",
       "password": "admin123",
       "address": "456 Admin St, HCMC",
@@ -19,548 +22,288 @@
       "phoneNumber": "0909090909",
       "name": "Admin User",
       "avatar": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "00e6",
+      "name": "Hoàng",
+      "email": "hoang@email.com",
+      "password": "123456789",
+      "role": "user",
+      "banned": false,
+      "createdAt": "2025-07-20T21:38:47.692Z"
+    },
+    {
+      "id": "a0dc",
+      "name": "",
+      "avatar": "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753063499/images_eukacp.png",
+      "phone": "0123456789",
+      "email": "voanhhoangpw2112@gmail.com",
+      "address": "Phuc Tho\nVong Xuyen",
+      "role": "Admin",
+      "banned": false,
+      "status": "Not Active"
     }
   ],
   "fish": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Cá Betta Nemo",
       "slug": "ca-betta-nemo",
-      "category": [1,2,9],
+      "category": 2,
       "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/betta-nemo-1.jpg",
       "price": 50000,
       "discount": 10,
       "stock": 20,
       "status": true,
       "numReviews": 5,
-      "images":[
+      "images": [
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
         "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
+      ],
+      "reviews": [
+        {
+          "user": "Nguyễn Văn A",
+          "rating": 5,
+          "comment": "Cá đẹp, màu sắc rực rỡ, giao hàng nhanh"
+        },
+        {
+          "user": "Trần Thị B",
+          "rating": 4,
+          "comment": "Cá khỏe, bơi đẹp nhưng hơi nhỏ"
+        },
+        {
+          "user": "Lê Văn C",
+          "rating": 5,
+          "comment": "Hoàn hảo, đóng gói cẩn thận"
+        },
+        {
+          "user": "Phạm Thị D",
+          "rating": 3,
+          "comment": "Cá hơi yếu, cần chăm sóc kỹ"
+        },
+        {
+          "user": "Hoàng Văn E",
+          "rating": 5,
+          "comment": "Giá tốt, sẽ mua lại"
+        }
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cá Bảy Màu Koi Đen Short",
       "slug": "ca-7-ma-u-koi-den-short",
-      "category": [2,5,6],
+      "category": 5,
       "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-7-mau-koi-den-short.jpg",
       "price": 30000,
       "discount": 0,
       "stock": 15,
       "status": true,
       "numReviews": 3,
-      "images":[
+      "images": [
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
         "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
+      ],
+      "reviews": [
+        {
+          "user": "Nguyễn Thị F",
+          "rating": 4,
+          "comment": "Cá đẹp, giá rẻ"
+        },
+        {
+          "user": "Trần Văn G",
+          "rating": 3,
+          "comment": "Màu sắc không được tươi như hình"
+        },
+        {
+          "user": "Lê Thị H",
+          "rating": 5,
+          "comment": "Cá khỏe mạnh, bơi lội tốt"
+        }
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Cá Nóc MBU (size 13 - 15)",
       "slug": "ca-noc-mbu-size-13-15",
-      "category": [1,3],
+      "category": 3,
       "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/noc-mbu.jpg",
       "price": 3700000,
       "discount": 0,
       "stock": 15,
       "status": true,
       "numReviews": 3,
-      "images":[
+      "images": [
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
         "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
+      ],
+      "reviews": [
+        {
+          "user": "Phạm Văn I",
+          "rating": 5,
+          "comment": "Cá đẹp, size chuẩn"
+        },
+        {
+          "user": "Hoàng Thị K",
+          "rating": 4,
+          "comment": "Đóng gói cẩn thận, vận chuyển tốt"
+        },
+        {
+          "user": "Nguyễn Văn L",
+          "rating": 3,
+          "comment": "Giá hơi cao nhưng chất lượng tốt"
+        }
       ]
-    },{
-      "id": 4,
+    },
+    {
+      "id": "4",
       "name": "Cá Pleco L177 - Gold Nugget",
       "slug": "ca-pleco-l177-gold-nugget",
-      "category": [2,7],
+      "category": 7,
       "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/pleco-l177.jpg",
       "price": 1700000,
       "discount": 0,
       "stock": 15,
       "status": true,
       "numReviews": 3,
-      "images":[
+      "images": [
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
         "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
+      ],
+      "reviews": [
+        {
+          "user": "Trần Văn M",
+          "rating": 5,
+          "comment": "Cá đẹp, màu sắc độc đáo"
+        },
+        {
+          "user": "Lê Thị N",
+          "rating": 4,
+          "comment": "Chăm sóc hơi khó nhưng rất đẹp"
+        },
+        {
+          "user": "Phạm Văn O",
+          "rating": 5,
+          "comment": "Hoàn hảo cho bể cá cảnh"
+        }
       ]
-    },{
-      "id": 5,
+    },
+    {
+      "id": "5",
       "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
       "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
+      "category": 1,
       "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
       "price": 1700000,
       "discount": 0,
       "stock": 15,
       "status": true,
       "numReviews": 3,
-      "images":[
+      "images": [
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
         "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
         "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
+      ],
+      "reviews": [
+        {
+          "user": "Hoàng Văn P",
+          "rating": 4,
+          "comment": "Cá khỏe, thích nghi tốt"
+        },
+        {
+          "user": "Nguyễn Thị Q",
+          "rating": 3,
+          "comment": "Hơi khó nuôi, cần chăm sóc đặc biệt"
+        },
+        {
+          "user": "Trần Văn R",
+          "rating": 5,
+          "comment": "Độc đáo, thu hút mọi ánh nhìn"
+        }
       ]
-    },{
-      "id": 6,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
+    },
+    {
+      "id": "7fe8",
+      "name": "Cá sọc ngựa cánh tiên",
+      "image": "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753068150/uploads/epvp931ilrnvq6iylbat.png",
+      "images": [
+        "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753068152/uploads/bbidpvxc25f0e2c3g5xh.jpg",
+        "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753068156/uploads/gdzskdvim9bqj6jhqmi6.jpg",
+        "https://res.cloudinary.com/dzcj2jbii/image/upload/v1753068161/uploads/dbuby2cqfnmv3bpv6w4v.jpg"
+      ],
+      "price": "20000",
       "discount": 0,
-      "stock": 15,
+      "stock": 0,
+      "rating": 0,
+      "category": "Cá nước ngọt",
+      "description": "",
       "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 7,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 8,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 9,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 10,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 11,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 12,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 13,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 14,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 15,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 16,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 17,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 18,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 19,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 20,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 21,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 22,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 23,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 24,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 25,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 26,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 27,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 28,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 29,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
-    },{
-      "id": 30,
-      "name": "Cá Chình Nước Ngọt (Freshwater Moray Eel)",
-      "slug": "ca-chinh-nuoc-ngot-freshwater-moray-eel",
-      "category": [1,2],
-      "image": "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/ca-chinh-nuoc-ngot-1.jpg",
-      "price": 1700000,
-      "discount": 0,
-      "stock": 15,
-      "status": true,
-      "numReviews": 3,
-      "images":[
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-4.jpg",
-        "https://bizweb.dktcdn.net/thumb/1024x1024/100/344/954/products/blue-panaque-pleco-l239-3.jpg",
-        "https://bizweb.dktcdn.net/100/344/954/products/blue-panaque-pleco-l239-1.jpg"
-      ]
+      "ban": false,
+      "reviews": []
     }
-
-
   ],
   "fishCategories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Cá Ăn thịt",
       "description": "Không nên nuôi cá ăn thịt xen kẽ với các giống cá khác nhau"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Cá nước ngọt",
       "description": "Phù hợp nuôi trong nước ngọt."
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Cá Nước mặn",
       "description": "Phù hợp nuôi trong nước mặn."
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Tép",
       "description": "Cùng họ với tôm, tép. Không nên nuôi cùng cá. Dọn bể tốt."
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Cá koi",
       "description": "Cá chép Koi hay cụ thể hơn Cá chép Nishikigoi là một loại cá chép thường đã được thuần hóa, lai tạo để nuôi làm cảnh trong những hồ nhỏ, được nuôi phổ biến tại Nhật Bản"
-    },{
-      "id": 6,
+    },
+    {
+      "id": "6",
       "name": "Cá ăn tạp",
       "description": "Thức ăn chính là các loại rêu, cám, tảo, tôm tép nhỏ hơn. Có thể nuối xen kẽ nhiều giống cá với nhau."
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Cá dọn bể",
       "description": "Cá dọn bể & cá bống ăn tầng đáy của bể cá. Có thể nuối đen xen với các giống khác."
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Ốc",
       "description": "Ăn rêu quanh bể. Có thể nuối xen kẽ tất cả các loại cá ăn tạp & ăn thịt"
-    },{
-      "id": 9,
+    },
+    {
+      "id": "9",
       "name": "Cá chọi beta",
       "description": " Cá chọi, hay còn gọi là cá Betta, là một loài cá cảnh nước ngọt nổi tiếng với vẻ đẹp rực rỡ và tính cách hiếu chiến. Nên nuôi 1 mình 1 bể."
     }
-    
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Máy Lọc Nước",
       "slug": "may-loc-nuoc",
       "category": 1,
-      "image": "/images/product1.jpg",
+      "image": "blob:http://localhost:5173/b39bb27d-7e17-48ac-8044-734c42a58d1a",
+      "images": [
+        "https://...1.png",
+        "https://...2.png",
+        "blob:http://localhost:5173/1b8b1350-d753-4548-9185-395391e48d4e"
+      ],
       "price": 600000,
       "discount": 5,
       "stock": 10,
@@ -568,11 +311,15 @@
       "numReviews": 7
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Thức Ăn Cho Cá",
       "slug": "thuc-an-ca",
       "category": 2,
       "image": "/images/product2.jpg",
+      "images": [
+        "https://...1.png",
+        "https://...2.png"
+      ],
       "price": 75000,
       "discount": 0,
       "stock": 30,
@@ -582,19 +329,24 @@
   ],
   "productCategories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Phụ Kiện",
       "description": "Phụ kiện cho hồ cá"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Thức Ăn",
       "description": "Thức ăn cho các loại cá"
+    },
+    {
+      "id": "3",
+      "name": "Thủy sinh",
+      "description": "Cây trong cho bể cá"
     }
   ],
   "comments": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "fishDetailId": 1,
       "productDetailId": null,
@@ -603,7 +355,7 @@
       "rating": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "userId": 2,
       "fishDetailId": null,
       "productDetailId": 1,
@@ -614,7 +366,7 @@
   ],
   "carts": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "items": [
         {
@@ -630,28 +382,51 @@
   ],
   "orders": [
     {
-      "id": 1,
+      "id": "1",
       "userId": 1,
       "totalPrice": 680000,
       "status": "pending",
       "address": "123 Main St, Hanoi",
       "createdAt": "2025-07-13T08:30:00Z"
+    },
+    {
+      "id": "1f8a",
+      "userId": 1,
+      "totalPrice": 11160000,
+      "status": "pending",
+      "address": "123 Main St, Hanoi",
+      "createdAt": "2025-07-20T19:57:31.635Z"
+    },
+    {
+      "id": "c7a8",
+      "userId": 1,
+      "totalPrice": 480000,
+      "status": "pending",
+      "address": "Hà Nội",
+      "createdAt": "2025-07-21T03:21:38.713Z"
     }
   ],
   "orderItems": [
     {
-      "id": 1,
+      "id": "1",
       "orderId": 1,
       "productId": 1,
       "quantity": 1,
       "price": 600000
     },
     {
-      "id": 2,
+      "id": "2",
       "orderId": 1,
       "fishId": 2,
       "quantity": 1,
       "price": 200000
+    },
+    {
+      "id": "30a3",
+      "orderId": "c7a8",
+      "productId": "2",
+      "quantity": 16,
+      "price": 30000
     }
   ]
 }

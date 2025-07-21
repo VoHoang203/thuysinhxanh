@@ -1,19 +1,22 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-
 const initialAppContext = {
   isAuthenticated: false,
-  setIsAuthenticated: () => {},
-  user: localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')): null,
+  setIsAuthenticated: () => {
+    localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : null;
+  },
+  user: localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : null,
   setUser: () => {},
   isAdmin: false,
   setIsAdmin: () => {},
   reset: () => {},
 };
 
-
 export const AppContext = createContext(initialAppContext);
-
 
 export const useAuth = () => useContext(AppContext);
 
@@ -35,19 +38,26 @@ export const AppProvider = ({ children }) => {
     return parsed.role === "admin";
   });
 
-
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      const parsed = JSON.parse(userInfo);
+      setUser(parsed);
+      setIsAuthenticated(true);
+      setIsAdmin(parsed.role === "admin");
+    }
+  }, []);
   useEffect(() => {
     if (user) {
       localStorage.setItem("userInfo", JSON.stringify(user));
       setIsAuthenticated(true);
-      setIsAdmin(user[0].role === "admin");
+      setIsAdmin(user.role === "admin");
     } else {
       localStorage.removeItem("userInfo");
       setIsAuthenticated(false);
       setIsAdmin(false);
     }
   }, [user]);
-
 
   const reset = () => {
     setUser(null);
