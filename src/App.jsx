@@ -18,6 +18,7 @@ import Dashboard from "./admin/dashboard-content";
 import CategoriesPage from "./admin/categories/categories";
 import ProductsPage from "./admin/products/products";
 import ProfilePage from "./admin/profile/admin-profile";
+import BlogAdmin from "./admin/blog/blogAdmin";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="products" element={<ProductsPage />} />
         <Route path="users" element={<UsersPage />} />
         <Route path="profile" element={<ProfilePage />} />
+        <Route path="blog" element={<BlogAdmin />} />
       </Route>
     </Routes>
   );
