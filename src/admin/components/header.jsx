@@ -84,7 +84,6 @@ export default function Header() {
         )}
       </div>
 
-     
       <div className="hidden md:flex items-center text-sm text-gray-500">
         <span>Pages</span>
         {pathSegments.map((segment, index) => (
@@ -101,7 +100,6 @@ export default function Header() {
       </div>
 
       <div className="relative ml-auto flex items-center gap-4">
-       
         <div ref={userMenuRef} className="relative">
           <button
             onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
@@ -118,12 +116,12 @@ export default function Header() {
                 My Account
               </div>
               <div className="border-t border-gray-100"></div>
-              <a
-                href="#"
+              <Link
+                to="/"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 Logout
-              </a>
+              </Link>
             </div>
           )}
         </div>
